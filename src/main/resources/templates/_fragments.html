@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+
+    <!--移动端预览设置-->
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+    <title th:replace="${title}">博客详情</title>
+
+    <!--Semantic UI css资源-->
+    <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
+    <!--typo.css 内容排版-->
+    <link href="../static/css/typo.css" th:href="@{css/typo.css}" rel="stylesheet">
+    <!--animate.css 动画-->
+    <link href="../static/css/animate.css" th:href="@{css/animate.css}" rel="stylesheet">
+    <!--prism 代码高亮-->
+    <link href="../static/lib/prism/prism.css" th:href="@{lib/prism/prism.css}" rel="stylesheet">
+    <!--tocbot 目录生成-->
+    <link href="../static/lib/tocbot/tocbot.css" th:href="@{lib/tocbot/tocbot.css}" rel="stylesheet">
+    <!--自定义css文件-->
+    <link href="../static/css/my.css" th:href="@{css/my.css}" rel="stylesheet">
+</head>
+<body>
+<!--导航-->
+<!--inverted 反转 效果：本来是白色，用了之后变成黑色-->
+<!--attached 附上 效果：贴敷在背板上，消去了圆角-->
+<!--segment 分割-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment my-padded-tb-zero my-shadow-small">
+    <div class="ui container">
+        <!--stackable 可堆叠的 为了响应移动端-->
+        <div class="ui inverted secondary stackable menu">
+            <!--item 代表 menu 里面的条目-->
+            <h2 class="ui teal header item">Zfans.</h2>
+            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 1}?'active'"><i
+                    class="home icon"></i>首页</a>
+            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 2}?'active'"><i
+                    class="bars icon"></i>分类</a>
+            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 3}?'active'"><i
+                    class="tags icon"></i>标签</a>
+            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 4}?'active'"><i
+                    class="clone icon"></i>归档</a>
+            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 5}?'active'"><i
+                    class="user icon"></i>关于我</a>
+            <div class="right item my-item my-mobile-hide">
+                <!--transparent 透明-->
+                <div class="ui icon inverted transparent input">
+                    <i class="search link icon"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--menu 有居中的效果-->
+    <a href="#" class="ui menu toggle black icon button my-right-top my-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--底部footer-->
+<!--attached 垂直 效果：去掉了圆角-->
+<footer th:fragment="footer" class="ui inverted vertical segment my-padded-tb-small">
+    <!--aligned 对齐-->
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <!--wide 填满-->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <!--rounded 圆角-->
+                        <img src="../static/images/weChat.png" th:src="@{images/weChat.png}" class="ui rounded image"
+                             alt="" style="width: 120px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（User Story）</a>
+                    <a href="#" class="item">用户故事（User Story）</a>
+                    <a href="#" class="item">用户故事（User Story）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">E-mail：zzzfans@qq.com</a>
+                    <a href="#" class="item">QQ：786975232</a>
+
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">Zfans.</h4>
+                <p class="my-text-thin my-text-spaced my-opacity-mini">
+                    浮生若梦，冷暖自知。</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="my-text-thin my-text-spaced my-opacity-tiny">Copyright © 2020 By Zfans.</p>
+    </div>
+</footer>
+
+
+<th:block th:fragment="script">
+    <!--CDN方式引入 也可以使用本地（下载下来放到项目目录里面）-->
+    <!--引入jquery Semantic UI 依赖-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <!--Semantic UI js资源-->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--scrollTo 平滑滚动-->
+    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+
+    <!--Waypoints 滚动侦测-->
+    <script src="../static/lib/prism/prism.js" th:src="@{lib/prism/prism.js}"></script>
+    <!--prism 代码高亮-->
+    <script src="../static/lib/Waypoints/jquery.waypoints.min.js"
+            th:src="@{lib/Waypoints/jquery.waypoints.min.js}"></script>
+    <!--tocbot 目录生成-->
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{lib/tocbot/tocbot.min.js}"></script>
+    <!--qrcode 二维码生成-->
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{lib/qrcode/qrcode.min.js}"></script>
+</th:block>
+
+</body>
+</html>

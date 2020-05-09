@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>首页</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments::menu(1)"></nav>
+<!--中间内容-->
+<div class="my-padded-tb-medium">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <!--左边博客列表-->
+            <div class="eleven wide column">
+                <!--header-->
+                <!--top attached 效果：顶部segment上边为圆角-->
+                <div class="ui top attached segment">
+                    <!--middle aligned 垂直居中-->
+                    <div class="ui middle aligned two column grid">
+                        <div class="column">
+                            <h3 class="ui teal header">博客</h3>
+                        </div>
+                        <div class="right aligned column">
+                            共 <h2 class="ui orange header my-inline-block my-text-thin">14</h2> 篇
+                        </div>
+                    </div>
+                </div>
+                <!--content-->
+                <div class="ui attached segment">
+                    <div class="ui vertical segment">
+                        <div class="ui mobile reversed stackable grid">
+                            <!--图片左边-->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">测试</h3>
+                                <p>
+                                    啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                                </p>
+
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">Zfans.</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2020-04-21
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="" target="_blank" class="ui teal basic label my-padded-tb-soTiny">
+                                            认知升级
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui vertical segment">
+                        <div class="ui mobile reversed stackable grid">
+                            <!--图片左边-->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">测试</h3>
+                                <p>
+                                    啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                                </p>
+
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">Zfans.</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2020-04-21
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="" target="_blank" class="ui teal basic label my-padded-tb-soTiny">
+                                            认知升级
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui vertical segment">
+                        <div class="ui mobile reversed stackable grid">
+                            <!--图片左边-->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">测试</h3>
+                                <p>
+                                    啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                                </p>
+
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">Zfans.</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2020-04-21
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="" target="_blank" class="ui teal basic label my-padded-tb-soTiny">
+                                            认知升级
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui vertical segment">
+                        <div class="ui mobile reversed stackable grid">
+                            <!--图片左边-->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">测试</h3>
+                                <p>
+                                    啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                                </p>
+
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">Zfans.</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2020-04-21
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="" target="_blank" class="ui teal basic label my-padded-tb-soTiny">
+                                            认知升级
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui vertical segment">
+                        <div class="ui mobile reversed stackable grid">
+                            <!--图片左边-->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">测试</h3>
+                                <p>
+                                    啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                                </p>
+
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">Zfans.</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2020-04-21
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="" target="_blank" class="ui teal basic label my-padded-tb-soTiny">
+                                            认知升级
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui vertical segment">
+                        <div class="ui mobile reversed stackable grid">
+                            <!--图片左边-->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">测试</h3>
+                                <p>
+                                    啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                                </p>
+
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">Zfans.</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2020-04-21
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="" target="_blank" class="ui teal basic label my-padded-tb-soTiny">
+                                            认知升级
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui vertical segment">
+                        <div class="ui mobile reversed stackable grid">
+                            <!--图片左边-->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">测试</h3>
+                                <p>
+                                    啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+                                </p>
+
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui horizontal link list">
+                                            <div class="item">
+                                                <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="#" class="header">Zfans.</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i>2020-04-21
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i>666
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="" target="_blank" class="ui teal basic label my-padded-tb-soTiny">
+                                            认知升级
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="five wide column">
+                                <a href="#" target="_blank">
+                                    <img src="../static/images/carGirl%20绑辫子%201920%201080.jpg" alt=""
+                                         class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--footer-->
+                <div class="ui bottom attached segment">
+                    <div class="ui middle aligned two column grid">
+                        <div class="column">
+                            <a href="" class="ui mini teal basic button">
+                                上一页
+                            </a>
+                        </div>
+                        <div class="right aligned column">
+                            <a href="" class="ui mini teal basic button">
+                                下一页
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--右边的top-->
+            <div class="five wide column">
+                <!--分类-->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="bars icon"></i> 分类
+                            </div>
+                            <div class="column right aligned">
+                                <a href="" target="_blank">more <i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <!--fluid 流体 效果：填充外层容器-->
+                        <div class="ui fluid vertical menu">
+                            <!--item 文字之后添加什么都放在最右边-->
+                            <a href="#" class="item">学习日志
+                                <div class="ui teal basic left pointing label">
+                                    13
+                                </div>
+                            </a>
+                            <a href="#" class="item">学习日志
+                                <div class="ui teal basic left pointing label">
+                                    13
+                                </div>
+                            </a>
+                            <a href="#" class="item">学习日志
+                                <div class="ui teal basic left pointing label">
+                                    13
+                                </div>
+                            </a>
+                            <a href="#" class="item">学习日志
+                                <div class="ui teal basic left pointing label">
+                                    13
+                                </div>
+                            </a>
+                            <a href="#" class="item">学习日志
+                                <div class="ui teal basic left pointing label">
+                                    13
+                                </div>
+                            </a>
+                            <a href="#" class="item">学习日志
+                                <div class="ui teal basic left pointing label">
+                                    13
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--标签-->
+                <div class="ui segments my-margin-top-large">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="tags icon"></i> 标签
+                            </div>
+                            <div class="column right aligned">
+                                <a href="" target="_blank">more <i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            方法论
+                            <div class="detail">23</div>
+                        </a>
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            方
+                            <div class="detail">23</div>
+                        </a>
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            法
+                            <div class="detail">23</div>
+                        </a>
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            论
+                            <div class="detail">23</div>
+                        </a>
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            方法论
+                            <div class="detail">23</div>
+                        </a>
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            方法论
+                            <div class="detail">23</div>
+                        </a>
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            方法论
+                            <div class="detail">23</div>
+                        </a>
+                        <a href="#" target="_blank" class="my-margin-tb-tiny ui teal basic left pointing label">
+                            方法论
+                            <div class="detail">23</div>
+                        </a>
+
+
+                    </div>
+                </div>
+                <!--最新推荐-->
+                <div class="ui segments my-margin-top-large">
+                    <div class="ui secondary segment">
+                        <i class="bookmark icon "></i> 最新推荐
+                    </div>
+                    <div class="ui segment">
+                        <a href="#" target="_blank" class=" my-black">我爱你</a>
+                    </div>
+                    <div class="ui segment">
+                        <a href="#" target="_blank" class=" my-black">我爱你</a>
+                    </div>
+                    <div class="ui segment">
+                        <a href="#" target="_blank" class=" my-black">我爱你</a>
+                    </div>
+                    <div class="ui segment">
+                        <a href="#" target="_blank" class=" my-black">我爱你</a>
+                    </div>
+                    <div class="ui segment">
+                        <a href="#" target="_blank" class=" my-black">我爱你</a>
+                    </div>
+                </div>
+
+                <!--二维码-->
+
+                <h4 class="ui horizontal divider header">扫码关注我</h4>
+                <div class="ui centered card" style="width: 10em">
+                    <!-- th:src="@{images/weChat.png}" thymeleaf模板找路径-->
+                    <img src="../static/images/weChat.png" th:src="@{images/weChat.png}" alt=""
+                         class="ui rounded image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer"></footer>
+<th:block th:replace="_fragments :: script"></th:block>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.my-item').toggleClass('my-mobile-hide');
+    });
+</script>
+</body>
+</html>

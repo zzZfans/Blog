@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <title>新增分类</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu(2)"></nav>
+
+<div class="ui attached pointing right menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a class="active teal item" href="#" th:href="@{/admin/types/input}">新增</a>
+            <a class="item" href="#" th:href="@{/admin/types}">列表</a>
+        </div>
+    </div>
+</div>
+
+<!--中间内容-->
+<div class="my-container my-padded-tb-medium">
+    <div class="ui container">
+        <form action="#" class="ui form" method="post" th:action="@{/admin/types}" th:object="${type}">
+            <input name="id" th:value="*{id}" type="hidden">
+            <div class="field">
+                <div class="ui left labeled input">
+                    <label class="ui teal basic label">分类</label>
+                    <!--name 与属性保持一致自动封装-->
+                    <input name="name" placeholder="分类名..." th:value="*{name}" type="text">
+                </div>
+            </div>
+            <div class="ui error message"></div>
+            <!--/*/
+            <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+                <i class="close icon"></i>
+                <div class="header">验证失败</div>
+                <p th:errors="*{name}">提交信息不符合规则</p>
+            </div>
+            /*/-->
+            <div class="ui right aligned container">
+                <button class="ui button" onclick="window.history.go(-1)" type="button">返回</button>
+                <!--submit 回车键提交-->
+                <button class="ui teal button">提交</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<!--底部footer-->
+<footer th:replace="admin/_fragments :: footer"></footer>
+
+<th:block th:replace="admin/_fragments :: script"></th:block>
+
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.my-item').toggleClass('my-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown();
+
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'name',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入分类名称！'
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

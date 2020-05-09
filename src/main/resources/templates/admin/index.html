@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <title>博客管理</title>
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu(0)"></nav>
+
+<!--中间内容-->
+<div class="my-container my-padded-tb-medium">
+    <div class="ui container">
+        <div class="ui success large message">
+            <h3>Hi,</h3>
+            <p>Zfans，欢迎登录！</p>
+        </div>
+        <img src="https://t1.picb.cc/uploads/2020/02/25/khBv1D.jpg" alt=""
+             class="ui rounded bordered fluid image">
+    </div>
+</div>
+
+<!--底部footer-->
+<footer th:replace="admin/_fragments :: footer"></footer>
+
+<th:block th:replace="admin/_fragments :: script"></th:block>
+
+</body>
+</html>

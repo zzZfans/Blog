@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+
+    <!--移动端预览设置-->
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+    <title th:replace="${title}"></title>
+
+    <!--Semantic UI css资源-->
+    <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
+    <!--typo.css 内容排版-->
+    <link href="../static/css/typo.css" th:href="@{/css/typo.css}" rel="stylesheet">
+    <!--animate.css 动画-->
+    <link href="../static/css/animate.css" th:href="@{/css/animate.css}" rel="stylesheet">
+    <!--prism 代码高亮-->
+    <link href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}" rel="stylesheet">
+    <!--tocbot 目录生成-->
+    <link href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}" rel="stylesheet">
+    <!--自定义css文件-->
+    <link href="../static/css/my.css" th:href="@{/css/my.css}" rel="stylesheet">
+</head>
+<body>
+
+<!--导航-->
+<!--inverted 反转 效果：本来是白色，用了之后变成黑色-->
+<!--attached 附上 效果：贴敷在背板上，消去了圆角-->
+<!--segment 分割-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment my-padded-tb-zero my-shadow-small">
+    <div class="ui container">
+        <!--stackable 可堆叠的 为了响应移动端-->
+        <div class="ui inverted secondary stackable menu">
+            <!--item 代表 menu 里面的条目-->
+            <h2 class="ui teal header item">后台管理</h2>
+            <a class="item my-item my-mobile-hide" href="#" th:classappend="${n == 1}?'active'"
+               th:href="@{/admin/blogs}"><i
+                    class="home icon"></i>博客</a>
+            <a class="item my-item my-mobile-hide" href="#" th:classappend="${n == 2}?'active'"
+               th:href="@{/admin/types}"><i
+                    class="bars icon"></i>分类</a>
+            <a class="item my-item my-mobile-hide" href="#" th:classappend="${n == 3}?'active'"
+               th:href="@{/admin/tags}"><i
+                    class="tags icon"></i>标签</a>
+            <div class="right my-item my-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image"
+                             src="https://t1.picb.cc/uploads/2020/02/25/khPuoT.jpg"
+                             th:src="@{${session.user.avatar}}">
+                        <span th:text="${session.user.nickName}"></span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="#" th:href="@{/admin/logout}">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--menu 有居中的效果-->
+    <a class="ui menu toggle black icon button my-right-top my-mobile-show" href="#">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--底部footer-->
+<!--attached 垂直 效果：去掉了圆角-->
+<footer th:fragment="footer" class="ui inverted vertical segment my-padded-tb-small">
+    <!--aligned 对齐-->
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <!--wide 填满-->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <!--rounded 圆角-->
+                        <img src="../static/images/weChat.png" th:src="@{/images/weChat.png}" class="ui rounded image"
+                             alt="" style="width: 120px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（User Story）</a>
+                    <a href="#" class="item">用户故事（User Story）</a>
+                    <a href="#" class="item">用户故事（User Story）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">E-mail：zzzfans@qq.com</a>
+                    <a href="#" class="item">QQ：786975232</a>
+
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">Zfans</h4>
+                <p class="my-text-thin my-text-spaced my-opacity-mini">
+                    浮生若梦，冷暖自知。</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div class="my-text-thin my-text-spaced my-opacity-tiny">
+            <p>Copyright © 2020 By Zfans</p>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+        </div>
+    </div>
+</footer>
+
+
+<th:block th:fragment="script">
+
+    <!--爱国富强民主...组合-->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;
+        jQuery(document).ready(function ($) {
+            $("body").click(function (e) {
+                var a = ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"];
+                var $i = $("<span/>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX, y = e.pageY;
+                $i.css({
+                    "z-index": 100000000,
+                    "top": y - 20,
+                    "left": x,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": "#ff6651"
+                });
+                $("body").append($i);
+                $i.animate({"top": y - 180, "opacity": 0}, 1500, function () {
+                    $i.remove();
+                });
+            });
+        });
+    </script>
+
+    <!--鼠标雪花特效-->
+    <script th:src="@{/js/mouse_fireworks.js}"></script>
+
+    <!--    动态网站标题标签-->
+    <script th:src="@{/js/dynamic_site_title.js}"></script>
+
+    <!--    鼠标跟随网线特效代码-->
+    <script th:src="@{/js/reticle_follow_mouse.js}"></script>
+
+    <!--    点击爱心特效代码-->
+    <script th:src="@{/js/click_love.js}"></script>
+
+    <!--    添加看板娘-->
+    <script th:src="@{/js/kan_ban_niang.js}"></script>
+
+    <!--    禁用键盘F12事件-->
+    <!--    <script th:src="@{/js/prohibit_f12.js}"></script>-->
+
+    <!--    添加建站时间-->
+    <script th:src="@{/js/timing_of_station_construction.js}"></script>
+
+    <!--CDN方式引入 也可以使用本地（下载下来放到项目目录里面）-->
+    <!--引入jquery Semantic UI 依赖-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <!--Semantic UI js资源-->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--scrollTo 平滑滚动-->
+    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+
+    <!--Waypoints 滚动侦测-->
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <!--prism 代码高亮-->
+    <script src="../static/lib/Waypoints/jquery.waypoints.min.js"
+            th:src="@{/lib/Waypoints/jquery.waypoints.min.js}"></script>
+    <!--tocbot 目录生成-->
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+    <!--qrcode 二维码生成-->
+    <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.my-item').toggleClass('my-mobile-hide');
+        });
+
+        $('.ui.dropdown').dropdown();
+    </script>
+
+</th:block>
+
+</body>
+</html>

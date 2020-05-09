@@ -1,0 +1,8 @@
+#################################### common config : ####################################
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: development
+
+

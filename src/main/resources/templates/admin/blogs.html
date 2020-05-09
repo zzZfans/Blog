@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <title>博客管理</title>
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu(1)"></nav>
+
+<div class="ui attached pointing right menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a class="item" href="#">发布</a>
+            <a class="active teal item" href="#">列表</a>
+        </div>
+    </div>
+
+
+</div>
+
+<!--中间内容-->
+<div class="my-container my-padded-tb-medium">
+    <div class="ui container">
+        <form action="#" class="ui segment form" method="post">
+            <div class="inline fields">
+                <div class="field">
+                    <input name="title" placeholder="标题" type="text">
+                </div>
+
+                <div class="field">
+                    <div class="ui selection dropdown">
+                        <input name="type" type="hidden">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">分类</div>
+                        <div class="menu">
+                            <div class="item" data-value="1">错误日志</div>
+                            <div class="item" data-value="2">开发者手册</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input id="recommend" name="recommend" type="checkbox">
+                        <label for="recommend">推荐</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <button class="mini ui teal basic button">
+                        <i class="search icon"></i>搜索
+                    </button>
+                </div>
+            </div>
+        </form>
+        <table class="ui compact celled teal table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>类型</th>
+                <th>推荐</th>
+                <th>更新时间</th>
+                <th>操作</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>xxx</td>
+                <td>xxxx</td>
+                <td>1</td>
+                <td>2019-11-23 09:12</td>
+                <td>
+                    <a class="ui mini teal basic button" href="#">编辑</a>
+                    <a class="ui mini red basic button" href="#">删除</a>
+
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <!--colspan 合并单元格-->
+                <th colspan="6">
+                    <div class="ui mini pagination menu">
+                        <a class="item">
+                            上一页
+                        </a>
+                        <a class="item">
+                            下一页
+                        </a>
+                    </div>
+                    <a class="ui my-margin-top-tiny right floated mini teal basic button" href="#">
+                        新增
+                    </a>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<br><br><br>
+
+
+<!--底部footer-->
+<footer th:replace="admin/_fragments :: footer"></footer>
+
+
+<th:block th:replace="admin/_fragments :: script"></th:block>
+
+</body>
+</html>

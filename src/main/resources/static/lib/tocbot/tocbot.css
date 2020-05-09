@@ -1,0 +1,75 @@
+.toc {
+    overflow-y: auto
+}
+
+.toc > .toc-list {
+    overflow: hidden;
+    position: relative
+}
+
+.toc > .toc-list li {
+    list-style: none
+}
+
+.toc-list {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px
+}
+
+/*li a li元素下面的a元素*/
+.toc-list li a {
+    /*block 块*/
+    display: block;
+    /* 上下 4px 左右 0 */
+    padding: 4px 0;
+    font-weight: 500;
+    /*取消下划线样式*/
+    text-decoration: none;
+}
+
+/*悬停样式*/
+.toc-list li a:hover {
+    color: #00b5ad;
+}
+
+a.toc-link {
+    color: currentColor;
+    height: 100%
+}
+
+.is-collapsible {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: all 300ms ease-in-out
+}
+
+.is-collapsed {
+    max-height: 0
+}
+
+.is-position-fixed {
+    position: fixed !important;
+    top: 0
+}
+
+.is-active-link {
+    font-weight: 700;
+    /*!important 提高优先级*/
+    color: #00b5ad !important;
+}
+
+.toc-link::before {
+    background-color: #EEE;
+    content: ' ';
+    display: inline-block;
+    height: 20px;
+    left: 0;
+    margin-top: -1px;
+    position: absolute;
+    width: 2px
+}
+
+.is-active-link::before {
+    background-color: #54BC4B
+}
