@@ -1,0 +1,194 @@
+2020-05-10 03:06:47.553  INFO 21296 --- [restartedMain] com.zfans.BlogApplication                : Starting BlogApplication on Zfans with PID 21296 (C:\Users\Zfans\Desktop\My-Blog\target\classes started by Zfans in C:\Users\Zfans\Desktop\My-Blog)
+2020-05-10 03:06:47.556 DEBUG 21296 --- [restartedMain] com.zfans.BlogApplication                : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-10 03:06:47.560  INFO 21296 --- [restartedMain] com.zfans.BlogApplication                : The following profiles are active: development
+2020-05-10 03:06:47.596  INFO 21296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-10 03:06:47.596  INFO 21296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-10 03:06:48.061  INFO 21296 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-10 03:06:48.140  INFO 21296 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72ms. Found 4 JPA repository interfaces.
+2020-05-10 03:06:48.778  INFO 21296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-10 03:06:48.784  INFO 21296 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-10 03:06:48.784  INFO 21296 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-10 03:06:48.859  INFO 21296 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-10 03:06:48.860  INFO 21296 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1263 ms
+2020-05-10 03:06:49.033  INFO 21296 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-10 03:06:49.070  INFO 21296 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-05-10 03:06:49.154  INFO 21296 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-10 03:06:49.216  INFO 21296 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-10 03:06:49.427  INFO 21296 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-10 03:06:49.442  INFO 21296 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-10 03:06:50.065  INFO 21296 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-10 03:06:50.070  INFO 21296 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-10 03:06:50.111  INFO 21296 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-10 03:06:50.554  WARN 21296 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-10 03:06:50.708  INFO 21296 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-10 03:06:50.785  INFO 21296 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-10 03:06:51.321  INFO 21296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-10 03:06:51.323  INFO 21296 --- [restartedMain] com.zfans.BlogApplication                : Started BlogApplication in 4.431 seconds (JVM running for 5.815)
+2020-05-10 03:07:03.282  INFO 21296 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-10 03:07:03.282  INFO 21296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-10 03:07:03.295  INFO 21296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-05-10 03:07:03.331  INFO 21296 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:07:03.338  INFO 21296 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:20:21.147  INFO 21084 --- [restartedMain] com.zfans.BlogApplication                : Starting BlogApplication on Zfans with PID 21084 (D:\My-Blog\My-Blog\target\classes started by Zfans in D:\My-Blog\My-Blog)
+2020-05-10 03:20:21.183 DEBUG 21084 --- [restartedMain] com.zfans.BlogApplication                : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-10 03:20:21.183  INFO 21084 --- [restartedMain] com.zfans.BlogApplication                : The following profiles are active: development
+2020-05-10 03:20:21.219  INFO 21084 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-10 03:20:21.219  INFO 21084 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-10 03:20:21.781  INFO 21084 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-10 03:20:21.857  INFO 21084 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68ms. Found 4 JPA repository interfaces.
+2020-05-10 03:20:22.486  INFO 21084 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-10 03:20:22.492  INFO 21084 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-10 03:20:22.493  INFO 21084 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-10 03:20:22.567  INFO 21084 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-10 03:20:22.567  INFO 21084 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1348 ms
+2020-05-10 03:20:22.731  INFO 21084 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-10 03:20:22.762  INFO 21084 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-05-10 03:20:22.836  INFO 21084 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-10 03:20:22.892  INFO 21084 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-10 03:20:23.083  INFO 21084 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-10 03:20:23.096  INFO 21084 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-10 03:20:23.813  INFO 21084 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-10 03:20:23.819  INFO 21084 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-10 03:20:23.863  INFO 21084 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-10 03:20:24.312  WARN 21084 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-10 03:20:24.476  INFO 21084 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-10 03:20:24.765  INFO 21084 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-10 03:20:24.767  INFO 21084 --- [restartedMain] com.zfans.BlogApplication                : Started BlogApplication in 4.093 seconds (JVM running for 5.034)
+2020-05-10 03:20:28.320  INFO 21084 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-10 03:20:28.320  INFO 21084 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-10 03:20:28.328  INFO 21084 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-05-10 03:20:28.346  INFO 21084 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:20:28.349  INFO 21084 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:20:31.510  INFO 21084 --- [http-nio-8080-exec-4] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:20:31.511  INFO 21084 --- [http-nio-8080-exec-4] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:20:45.542  INFO 21084 --- [http-nio-8080-exec-5] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:20:45.542  INFO 21084 --- [http-nio-8080-exec-5] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:21:05.082  INFO 21084 --- [http-nio-8080-exec-6] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:21:05.082  INFO 21084 --- [http-nio-8080-exec-6] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:21:11.123  INFO 21928 --- [restartedMain] com.zfans.BlogApplication                : Starting BlogApplication on Zfans with PID 21928 (D:\My-Blog\My-Blog\target\classes started by Zfans in D:\My-Blog\My-Blog)
+2020-05-10 03:21:11.127 DEBUG 21928 --- [restartedMain] com.zfans.BlogApplication                : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-10 03:21:11.127  INFO 21928 --- [restartedMain] com.zfans.BlogApplication                : The following profiles are active: development
+2020-05-10 03:21:11.179  INFO 21928 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-10 03:21:11.179  INFO 21928 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-10 03:21:11.590  INFO 21928 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-10 03:21:11.638  INFO 21928 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42ms. Found 4 JPA repository interfaces.
+2020-05-10 03:21:12.145  INFO 21928 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-10 03:21:12.152  INFO 21928 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-10 03:21:12.153  INFO 21928 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-10 03:21:12.233  INFO 21928 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-10 03:21:12.233  INFO 21928 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1054 ms
+2020-05-10 03:21:12.393  INFO 21928 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-10 03:21:12.424  INFO 21928 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-05-10 03:21:12.521  INFO 21928 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-10 03:21:12.597  INFO 21928 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-10 03:21:12.829  INFO 21928 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-10 03:21:12.847  INFO 21928 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-10 03:21:13.599  INFO 21928 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-10 03:21:13.604  INFO 21928 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-10 03:21:13.644  INFO 21928 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-10 03:21:14.118  WARN 21928 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-10 03:21:14.282  INFO 21928 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-10 03:21:14.571  INFO 21928 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-10 03:21:14.573  INFO 21928 --- [restartedMain] com.zfans.BlogApplication                : Started BlogApplication in 4.144 seconds (JVM running for 5.379)
+2020-05-10 03:21:17.622  INFO 21928 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-10 03:21:17.622  INFO 21928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-10 03:21:17.634  INFO 21928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-05-10 03:21:17.661  INFO 21928 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:21:17.669  INFO 21928 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:21:41.609  INFO 21928 --- [http-nio-8080-exec-3] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:21:41.610  INFO 21928 --- [http-nio-8080-exec-3] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:22:35.472  INFO 21928 --- [http-nio-8080-exec-5] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:22:35.472  INFO 21928 --- [http-nio-8080-exec-5] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:22:36.629  INFO 21928 --- [http-nio-8080-exec-6] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:22:36.630  INFO 21928 --- [http-nio-8080-exec-6] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:23:36.137  INFO 19660 --- [restartedMain] com.zfans.BlogApplication                : Starting BlogApplication on Zfans with PID 19660 (D:\My-Blog\My-Blog\target\classes started by Zfans in D:\My-Blog\My-Blog)
+2020-05-10 03:23:36.177 DEBUG 19660 --- [restartedMain] com.zfans.BlogApplication                : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-10 03:23:36.177  INFO 19660 --- [restartedMain] com.zfans.BlogApplication                : The following profiles are active: development
+2020-05-10 03:23:36.239  INFO 19660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-10 03:23:36.239  INFO 19660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-10 03:23:36.722  INFO 19660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-10 03:23:36.772  INFO 19660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43ms. Found 4 JPA repository interfaces.
+2020-05-10 03:23:37.272  INFO 19660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-10 03:23:37.278  INFO 19660 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-10 03:23:37.279  INFO 19660 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-10 03:23:37.358  INFO 19660 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-10 03:23:37.358  INFO 19660 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1119 ms
+2020-05-10 03:23:37.525  INFO 19660 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-10 03:23:37.554  INFO 19660 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-05-10 03:23:37.626  INFO 19660 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-10 03:23:37.681  INFO 19660 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-10 03:23:37.881  INFO 19660 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-10 03:23:37.896  INFO 19660 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-10 03:23:38.605  INFO 19660 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-10 03:23:38.612  INFO 19660 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-10 03:23:38.665  INFO 19660 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-10 03:23:39.171  WARN 19660 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-10 03:23:39.330  INFO 19660 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-10 03:23:39.603  INFO 19660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-10 03:23:39.605  INFO 19660 --- [restartedMain] com.zfans.BlogApplication                : Started BlogApplication in 4.065 seconds (JVM running for 5.039)
+2020-05-10 03:23:44.804  INFO 19660 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-10 03:23:44.805  INFO 19660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-10 03:23:44.814  INFO 19660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-05-10 03:23:44.836  INFO 19660 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:23:44.840  INFO 19660 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:23:57.398  INFO 22128 --- [restartedMain] com.zfans.BlogApplication                : Starting BlogApplication on Zfans with PID 22128 (D:\My-Blog\My-Blog\target\classes started by Zfans in D:\My-Blog\My-Blog)
+2020-05-10 03:23:57.401 DEBUG 22128 --- [restartedMain] com.zfans.BlogApplication                : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-10 03:23:57.406  INFO 22128 --- [restartedMain] com.zfans.BlogApplication                : The following profiles are active: development
+2020-05-10 03:23:57.453  INFO 22128 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-10 03:23:57.454  INFO 22128 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-10 03:23:57.901  INFO 22128 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-10 03:23:57.961  INFO 22128 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54ms. Found 4 JPA repository interfaces.
+2020-05-10 03:23:58.474  INFO 22128 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-10 03:23:58.480  INFO 22128 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-10 03:23:58.481  INFO 22128 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-10 03:23:58.556  INFO 22128 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-10 03:23:58.556  INFO 22128 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1102 ms
+2020-05-10 03:23:58.733  INFO 22128 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-10 03:23:58.758  INFO 22128 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-05-10 03:23:58.828  INFO 22128 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-10 03:23:58.884  INFO 22128 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-10 03:23:59.080  INFO 22128 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-10 03:23:59.092  INFO 22128 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-10 03:23:59.720  INFO 22128 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-10 03:23:59.726  INFO 22128 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-10 03:23:59.774  INFO 22128 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-10 03:24:00.268  WARN 22128 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-10 03:24:00.464  INFO 22128 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-10 03:24:00.719  INFO 22128 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-10 03:24:00.721  INFO 22128 --- [restartedMain] com.zfans.BlogApplication                : Started BlogApplication in 3.956 seconds (JVM running for 5.104)
+2020-05-10 03:24:03.075  INFO 22128 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-10 03:24:03.075  INFO 22128 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-10 03:24:03.083  INFO 22128 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-05-10 03:24:03.103  INFO 22128 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:24:03.106  INFO 22128 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Result : index
+2020-05-10 03:24:22.152  INFO 17936 --- [restartedMain] com.zfans.BlogApplication                : Starting BlogApplication on Zfans with PID 17936 (D:\My-Blog\My-Blog\target\classes started by Zfans in D:\My-Blog\My-Blog)
+2020-05-10 03:24:22.155 DEBUG 17936 --- [restartedMain] com.zfans.BlogApplication                : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-10 03:24:22.155  INFO 17936 --- [restartedMain] com.zfans.BlogApplication                : The following profiles are active: development
+2020-05-10 03:24:22.236  INFO 17936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-10 03:24:22.237  INFO 17936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-10 03:24:22.646  INFO 17936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-10 03:24:22.697  INFO 17936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46ms. Found 4 JPA repository interfaces.
+2020-05-10 03:24:23.195  INFO 17936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-10 03:24:23.202  INFO 17936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-10 03:24:23.203  INFO 17936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-10 03:24:23.279  INFO 17936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-10 03:24:23.279  INFO 17936 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1042 ms
+2020-05-10 03:24:23.441  INFO 17936 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-10 03:24:23.468  INFO 17936 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-05-10 03:24:23.540  INFO 17936 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-10 03:24:23.597  INFO 17936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-10 03:24:23.794  INFO 17936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-10 03:24:23.807  INFO 17936 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-10 03:24:24.406  INFO 17936 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-10 03:24:24.411  INFO 17936 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-10 03:24:24.455  INFO 17936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-10 03:24:24.878  WARN 17936 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-10 03:24:25.043  INFO 17936 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-10 03:24:25.131  INFO 17936 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-10 03:24:25.520  INFO 17936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-10 03:24:25.522  INFO 17936 --- [restartedMain] com.zfans.BlogApplication                : Started BlogApplication in 3.838 seconds (JVM running for 4.702)
+2020-05-10 03:24:27.745  INFO 17936 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-10 03:24:27.745  INFO 17936 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-10 03:24:27.759  INFO 17936 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-05-10 03:24:27.782  INFO 17936 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.zfans.web.IndexController.index', args=[]}
+2020-05-10 03:24:27.785  INFO 17936 --- [http-nio-8080-exec-1] com.zfans.aspect.LogAspect               : Result : index

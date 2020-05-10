@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @author Zfans
@@ -47,5 +48,11 @@ public class TypeServiceImpl implements TypeService {
     @Override
     public void deleteTypeById(Long id) {
         typeRepository.deleteById(id);
+    }
+
+    @Transactional
+    @Override
+    public List<Type> listType() {
+        return typeRepository.findAll();
     }
 }

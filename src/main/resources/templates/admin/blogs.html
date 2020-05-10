@@ -15,27 +15,29 @@
             <a class="active teal item" href="#">列表</a>
         </div>
     </div>
-
-
 </div>
 
 <!--中间内容-->
 <div class="my-container my-padded-tb-medium">
     <div class="ui container">
-        <form action="#" class="ui segment form" method="post">
+        <div class="ui segment form">
+            <input name="page" type="hidden">
             <div class="inline fields">
                 <div class="field">
-                    <input name="title" placeholder="标题" type="text">
+                    <input name="title" placeholder="标题..." type="text">
                 </div>
-
                 <div class="field">
                     <div class="ui selection dropdown">
-                        <input name="type" type="hidden">
+                        <input name="typeId" type="hidden">
                         <i class="dropdown icon"></i>
                         <div class="default text">分类</div>
                         <div class="menu">
-                            <div class="item" data-value="1">错误日志</div>
+                            <div class="item" data-value="1" th:data-value="${type.id}" th:each="type : ${types}"
+                                 th:text="${type.name}">错误日志
+                            </div>
+                            <!--/*-->
                             <div class="item" data-value="2">开发者手册</div>
+                            <!--*/-->
                         </div>
                     </div>
                 </div>
@@ -46,57 +48,62 @@
                     </div>
                 </div>
                 <div class="field">
-                    <button class="mini ui teal basic button">
+                    <button class="mini ui teal basic button" id="search-btn" type="button">
                         <i class="search icon"></i>搜索
                     </button>
                 </div>
             </div>
-        </form>
-        <table class="ui compact celled teal table">
-            <thead>
-            <tr>
-                <th>序号</th>
-                <th>标题</th>
-                <th>类型</th>
-                <th>推荐</th>
-                <th>更新时间</th>
-                <th>操作</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>xxx</td>
-                <td>xxxx</td>
-                <td>1</td>
-                <td>2019-11-23 09:12</td>
-                <td>
-                    <a class="ui mini teal basic button" href="#">编辑</a>
-                    <a class="ui mini red basic button" href="#">删除</a>
-
-                </td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-                <!--colspan 合并单元格-->
-                <th colspan="6">
-                    <div class="ui mini pagination menu">
-                        <a class="item">
-                            上一页
+        </div>
+        <div id="table-container">
+            <table class="ui compact celled teal table" th:fragment="blogList">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>标题</th>
+                    <th>类型</th>
+                    <th>推荐</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="blog,iterStat:${page.content}">
+                    <td th:text="${iterStat.count}">1</td>
+                    <td th:text="${blog.title}">xxx</td>
+                    <td th:text="${blog.type.name}">xxxx</td>
+                    <td th:text="${blog.recommend}? '是':'否'">1</td>
+                    <td th:text="${blog.updateTime}">2019-11-23 09:12</td>
+                    <td>
+                        <a class="ui mini teal basic button" href="#"
+                           th:href="@{/admin/blogs/{id}/input(id=${blog.id})}">编辑</a>
+                        <a class="ui mini red basic button" href="#"
+                           th:href="@{/admin/blogs/{id}/delete(id=${blogs.id})}">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <!--colspan 合并单元格-->
+                    <th colspan="6">
+                        <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                            <a class="item" onclick="page()" th:attr="data-page=${page.number}-1"
+                               th:unless="${page.first}">
+                                上一页
+                            </a>
+                            <a class="item" onclick="page()" th:attr="data-page=${page.number}+1"
+                               th:unless="${page.last}">
+                                下一页
+                            </a>
+                        </div>
+                        <a class="ui my-margin-top-tiny right floated mini teal basic button" href="#">
+                            新增
                         </a>
-                        <a class="item">
-                            下一页
-                        </a>
-                    </div>
-                    <a class="ui my-margin-top-tiny right floated mini teal basic button" href="#">
-                        新增
-                    </a>
-                </th>
-            </tr>
-            </tfoot>
-        </table>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+
     </div>
 </div>
 
@@ -108,6 +115,28 @@
 
 
 <th:block th:replace="admin/_fragments :: script"></th:block>
+
+<script>
+    function page(obj) {
+        $("[name='page']").val($(obj).data("page"));
+        loaddata();
+    }
+
+    function loaddata() {
+        $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search", {
+            title: $("[name='title']").val(),
+            typeId: $("[name='typeId']").val(),
+            recommend: $("[name='recommend']").prop('checked'),
+            page: $("[name='page']").val()
+        });
+
+    }
+
+    $("#search-btn").click(function () {
+        loaddata();
+    });
+
+</script>
 
 </body>
 </html>
