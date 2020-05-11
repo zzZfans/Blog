@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @author Zfans
@@ -46,5 +47,11 @@ public class TagServiceImpl implements TagService {
     @Override
     public void deleteTagById(Long id) {
         tagRepository.deleteById(id);
+    }
+
+    @Transactional
+    @Override
+    public List<Tag> listTag() {
+        return tagRepository.findAll();
     }
 }

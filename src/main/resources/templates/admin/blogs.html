@@ -33,8 +33,7 @@
                         <div class="default text">分类</div>
                         <div class="menu">
                             <div class="item" data-value="1" th:data-value="${type.id}" th:each="type : ${types}"
-                                 th:text="${type.name}">错误日志
-                            </div>
+                                 th:text="${type.name}"></div>
                             <!--/*-->
                             <div class="item" data-value="2">开发者手册</div>
                             <!--*/-->
@@ -95,7 +94,8 @@
                                 下一页
                             </a>
                         </div>
-                        <a class="ui my-margin-top-tiny right floated mini teal basic button" href="#">
+                        <a class="ui my-margin-top-tiny right floated mini teal basic button" href="#"
+                           th:href="@{/admin/blogs/input}">
                             新增
                         </a>
                     </th>
@@ -107,12 +107,8 @@
     </div>
 </div>
 
-<br><br><br>
-
-
 <!--底部footer-->
 <footer th:replace="admin/_fragments :: footer"></footer>
-
 
 <th:block th:replace="admin/_fragments :: script"></th:block>
 
@@ -137,6 +133,5 @@
     });
 
 </script>
-
 </body>
 </html>
