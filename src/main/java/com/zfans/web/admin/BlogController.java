@@ -1,6 +1,7 @@
 package com.zfans.web.admin;
 
 import com.zfans.entity.Blog;
+import com.zfans.entity.User;
 import com.zfans.service.BlogService;
 import com.zfans.service.TagService;
 import com.zfans.service.TypeService;
@@ -14,6 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -38,8 +42,7 @@ public class BlogController {
 
     @GetMapping("/blogs")
     public String list(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
-                       BlogQuery blogQuery,
-                       Model model) {
+                       BlogQuery blogQuery, Model model) {
         model.addAttribute("types", typeService.listType());
         model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
         return LIST;
@@ -60,5 +63,19 @@ public class BlogController {
         model.addAttribute("tags", tagService.listTag());
         model.addAttribute("blog", new Blog());
         return INPUT;
+    }
+
+    @PostMapping("/blogs")
+    public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
+        blog.setUser((User) session.getAttribute("user"));
+        blog.setType(typeService.getTypeById(blog.getType().getId()));
+        blog.setTags(tagService.listTag(blog.getTagIds()));
+        Blog b = blogService.saveBlog(blog);
+        if (b == null) {
+            attributes.addFlashAttribute("message", "操作失败！");
+        } else {
+            attributes.addFlashAttribute("message", "操作成功！");
+        }
+        return REDIRECT_LIST;
     }
 }

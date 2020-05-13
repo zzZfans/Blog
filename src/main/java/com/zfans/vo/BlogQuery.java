@@ -1,6 +1,5 @@
 package com.zfans.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
  * @date 2020/05/11 3:02
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class BlogQuery {
     private String title;

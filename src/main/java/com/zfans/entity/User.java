@@ -1,6 +1,5 @@
 package com.zfans.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,10 +13,9 @@ import java.util.List;
  * @date 2020/5/4 23:28
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "t_user")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue
@@ -34,5 +32,27 @@ public class User {
     private Date updateTile;
 
     @OneToMany(mappedBy = "user")
+//    @JsonIgnoreProperties(value = {"user"})
     private List<Blog> blogs = new ArrayList<>();
+
+    @Override
+    public String toString() {
+
+        blogs.forEach(data -> {
+            data.setUser(null);
+        });
+
+        return "User{" +
+                "id=" + id +
+                ", nickName='" + nickName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", type=" + type +
+                ", createTime=" + createTime +
+                ", updateTile=" + updateTile +
+                ", blogs=" + blogs +
+                '}';
+    }
 }

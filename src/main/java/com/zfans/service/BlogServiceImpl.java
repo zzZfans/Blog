@@ -1,24 +1,23 @@
 package com.zfans.service;
 
-import com.zfans.NotFoundException;
 import com.zfans.dao.BlogRepository;
 import com.zfans.entity.Blog;
 import com.zfans.entity.Type;
 import com.zfans.vo.BlogQuery;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author Zfans
@@ -64,21 +63,17 @@ public class BlogServiceImpl implements BlogService {
         }, pageable);
     }
 
+    @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
+        blog.setCreateTime(new Date());
+        blog.setUpdateTime(new Date());
+        blog.setViews(0);
+        System.out.println(blog);
         return blogRepository.save(blog);
     }
 
-    @Override
-    public Blog updateBlog(Long id, Blog blog) {
-        Optional<Blog> b = blogRepository.findById(id);
-        if (!b.isPresent()) {
-            throw new NotFoundException("该博客不存在！");
-        }
-        BeanUtils.copyProperties(blog, b.get());
-        return blogRepository.save(b.get());
-    }
-
+    @Transactional
     @Override
     public void deleteBlog(Long id) {
         blogRepository.deleteById(id);

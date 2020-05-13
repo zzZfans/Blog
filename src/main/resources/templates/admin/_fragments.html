@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
     <!--自定义css文件-->
     <link rel="stylesheet" th:href="@{/css/my.css}">
+    <!--live2d-widget 看板娘依赖-->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -146,7 +148,9 @@
     <script th:src="@{/js/click_love.js}"></script>
 
     <!--    添加看板娘-->
-    <script th:src="@{/js/kan_ban_niang.js}"></script>
+    <!--    <script th:src="@{/js/kan_ban_niang.js}"></script>-->
+    <!--live2d-widget 看板娘-->
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 
     <!--    禁用键盘F12事件-->
     <!--    <script th:src="@{/js/prohibit_f12.js}"></script>-->

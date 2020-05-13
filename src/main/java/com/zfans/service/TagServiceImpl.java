@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,19 +26,19 @@ public class TagServiceImpl implements TagService {
         return tagRepository.save(tag);
     }
 
-    @Transactional
+
     @Override
     public Tag getTagById(Long id) {
         return tagRepository.getOne(id);
     }
 
-    @Transactional
+
     @Override
     public Page<Tag> listTag(Pageable pageable) {
         return tagRepository.findAll(pageable);
     }
 
-    @Transactional
+
     @Override
     public Tag getTagByName(String name) {
         return tagRepository.findByName(name);
@@ -49,9 +50,25 @@ public class TagServiceImpl implements TagService {
         tagRepository.deleteById(id);
     }
 
-    @Transactional
+
     @Override
     public List<Tag> listTag() {
         return tagRepository.findAll();
+    }
+
+    private List<Long> convertToList(String ids) {
+        List<Long> list = new ArrayList<>();
+        if (!"".equals(ids) && ids != null) {
+            String[] idarray = ids.split(",");
+            for (String s : idarray) {
+                list.add(new Long(s));
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<Tag> listTag(String ids) {
+        return tagRepository.findAllById(convertToList(ids));
     }
 }

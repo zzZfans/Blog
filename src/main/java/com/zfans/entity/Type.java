@@ -1,6 +1,5 @@
 package com.zfans.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,10 +13,9 @@ import java.util.List;
  * @date 2020/5/4 23:07
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "t_type")
+@Table(name = "type")
 public class Type {
     @Id
     @GeneratedValue
@@ -26,5 +24,19 @@ public class Type {
     private String name;
 
     @OneToMany(mappedBy = "type")
+//    @JsonIgnoreProperties(value = {"type"})
     private List<Blog> blogs = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        blogs.forEach(data -> {
+            data.setType(null);
+        });
+
+        return "Type{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", blogs=" + blogs +
+                '}';
+    }
 }

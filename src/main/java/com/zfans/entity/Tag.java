@@ -1,6 +1,5 @@
 package com.zfans.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,10 +12,9 @@ import java.util.List;
  * @date 2020/5/4 23:08
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "t_tag")
+@Table(name = "tag")
 public class Tag {
     @Id
     @GeneratedValue
@@ -24,5 +22,20 @@ public class Tag {
     private String name;
 
     @ManyToMany(mappedBy = "tags")
+//    @JsonIgnoreProperties(value = {"tags"})
     private List<Blog> blogs = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        blogs.forEach(data -> {
+            data.getTags().clear();
+        });
+
+
+        return "Tag{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", blogs=" + blogs +
+                '}';
+    }
 }

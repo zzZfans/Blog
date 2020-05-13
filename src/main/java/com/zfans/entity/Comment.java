@@ -1,6 +1,5 @@
 package com.zfans.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,10 +13,9 @@ import java.util.List;
  * @date 2020/5/4 23:13
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "t_comment")
+@Table(name = "comment")
 public class Comment {
     @Id
     @GeneratedValue
@@ -29,12 +27,42 @@ public class Comment {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
+
     @ManyToOne
+//    @JsonIgnoreProperties(value = {"comments"})
     private Blog blog;
 
+
     @OneToMany(mappedBy = "parentComment")
+//    @JsonIgnoreProperties(value = {"parentComment"})
     private List<Comment> replyComments = new ArrayList<>();
 
+
     @ManyToOne
+//    @JsonIgnoreProperties(value = {"replyComments"})
     private Comment parentComment;
+
+    @Override
+    public String toString() {
+        if (blog != null) {
+            blog.getComments().clear();
+        }
+
+        replyComments.forEach(data -> {
+            data.setParentComment(null);
+            data.getReplyComments().clear();
+        });
+
+        return "Comment{" +
+                "id=" + id +
+                ", nickName='" + nickName + '\'' +
+                ", email='" + email + '\'' +
+                ", content='" + content + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", createTime=" + createTime +
+                ", blog=" + blog +
+                ", replyComments=" + replyComments +
+                ", parentComment=" + parentComment +
+                '}';
+    }
 }
