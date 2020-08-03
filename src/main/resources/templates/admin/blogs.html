@@ -11,8 +11,8 @@
 <div class="ui attached pointing right menu">
     <div class="ui container">
         <div class="right menu">
-            <a class="item" href="#">发布</a>
-            <a class="active teal item" href="#">列表</a>
+            <a class="item" href="#" th:href="@{/admin/blogs/input}">发布</a>
+            <a class="active teal item" href="#" th:href="@{/admin/blogs}">列表</a>
         </div>
     </div>
 </div>
@@ -27,7 +27,7 @@
                     <input name="title" placeholder="标题..." type="text">
                 </div>
                 <div class="field">
-                    <div class="ui selection dropdown">
+                    <div class="ui search selection dropdown">
                         <input name="typeId" type="hidden">
                         <i class="dropdown icon"></i>
                         <div class="default text">分类</div>
@@ -61,6 +61,7 @@
                     <th>标题</th>
                     <th>类型</th>
                     <th>推荐</th>
+                    <th>状态</th>
                     <th>更新时间</th>
                     <th>操作</th>
                 </tr>
@@ -71,6 +72,7 @@
                     <td th:text="${blog.title}">xxx</td>
                     <td th:text="${blog.type.name}">xxxx</td>
                     <td th:text="${blog.recommend}? '是':'否'">1</td>
+                    <td th:text="${blog.published}? '发布':'草稿'">1</td>
                     <td th:text="${blog.updateTime}">2019-11-23 09:12</td>
                     <td>
                         <a class="ui mini teal basic button" href="#"
@@ -83,13 +85,13 @@
                 <tfoot>
                 <tr>
                     <!--colspan 合并单元格-->
-                    <th colspan="6">
+                    <th colspan="7">
                         <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                            <a class="item" onclick="page()" th:attr="data-page=${page.number}-1"
+                            <a class="item" onclick="page(this)" th:attr="data-page=${page.number}-1"
                                th:unless="${page.first}">
                                 上一页
                             </a>
-                            <a class="item" onclick="page()" th:attr="data-page=${page.number}+1"
+                            <a class="item" onclick="page(this)" th:attr="data-page=${page.number}+1"
                                th:unless="${page.last}">
                                 下一页
                             </a>
@@ -102,11 +104,13 @@
                 </tr>
                 </tfoot>
             </table>
+
             <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
                 <i class="close icon"></i>
                 <div class="header">提示：</div>
                 <p th:text="${message}">恭喜，操作成功！</p>
             </div>
+
         </div>
     </div>
 </div>
@@ -133,16 +137,27 @@
     }
 
     $("#search-btn").click(function () {
+        $("[name='page']").val(0);
         loaddata();
     });
 
-    $('.message .close').on('click', function () {
-        $(this).closest('.message').transition('fade');
-    });
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
 
     setTimeout(function () {
         $('.message .close').click();
     }, 3000);
+
+    //设置分类下拉框为可清除的
+    $('.ui.search.selection.dropdown')
+        .dropdown({
+            clearable: true
+        })
+    ;
 
 </script>
 </body>

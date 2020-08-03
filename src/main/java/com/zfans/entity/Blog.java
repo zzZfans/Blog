@@ -22,9 +22,11 @@ public class Blog {
     private Long id;
 
     private String title;
+
     @Basic(fetch = FetchType.LAZY) //懒加载
     @Lob //大字段类型
     private String content;
+
     private String firstPicture;
     private String flag;
     private Integer views;
@@ -60,6 +62,31 @@ public class Blog {
 
     @Transient //不入库
     private String tagIds;
+
+    @Transient
+    private long createTimeL;
+
+    public void initTagIds() {
+        this.tagIds = tagsToIds(this.getTags());
+    }
+
+    private String tagsToIds(List<Tag> tags) {
+        if (!tags.isEmpty()) {
+            StringBuilder ids = new StringBuilder();
+            boolean flag = false;
+            for (Tag tag : tags) {
+                if (flag) {
+                    ids.append(',');
+                } else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        } else {
+            return tagIds;
+        }
+    }
 
     @Override
     public String toString() {

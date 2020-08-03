@@ -54,10 +54,10 @@
                 <!--colspan 合并单元格-->
                 <th colspan="6">
                     <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                        <a class="item" th:href="@{/admin/tags(page=${page.number-1})}" th:unless="${page.first}">
+                        <a class="item" th:href="@{/admin/tags(page=${page.number}-1)}" th:unless="${page.first}">
                             上一页
                         </a>
-                        <a class="item" th:href="@{/admin/tags(page=${page.number+1})}" th:unless="${page.last}">
+                        <a class="item" th:href="@{/admin/tags(page=${page.number}+1)}" th:unless="${page.last}">
                             下一页
                         </a>
                     </div>
