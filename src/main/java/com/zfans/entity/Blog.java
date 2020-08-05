@@ -40,6 +40,13 @@ public class Blog {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
 
+    @Transient //不入库
+    private String tagIds;
+
+    @Transient
+    private long createTimeL;
+
+    private String description;
 
     @ManyToOne
 //    @JsonIgnoreProperties(value = {"blogs"})
@@ -50,21 +57,13 @@ public class Blog {
 //    @JsonIgnoreProperties(value = {"blogs"})
     private List<Tag> tags = new ArrayList<>();
 
-
     @ManyToOne
 //    @JsonIgnoreProperties(value = {"blogs"})
     private User user;
 
-
     @OneToMany(mappedBy = "blog")
 //    @JsonIgnoreProperties(value = {"blog"})
     private List<Comment> comments = new ArrayList<>();
-
-    @Transient //不入库
-    private String tagIds;
-
-    @Transient
-    private long createTimeL;
 
     public void initTagIds() {
         this.tagIds = tagsToIds(this.getTags());
@@ -119,11 +118,13 @@ public class Blog {
                 ", recommend=" + recommend +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", tagIds='" + tagIds + '\'' +
+                ", createTimeL=" + createTimeL +
+                ", description='" + description + '\'' +
                 ", type=" + type +
                 ", tags=" + tags +
                 ", user=" + user +
                 ", comments=" + comments +
-                ", tagIds='" + tagIds + '\'' +
                 '}';
     }
 }

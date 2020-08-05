@@ -30,7 +30,6 @@
     <div class="ui container">
         <form action="#" class="ui form" id="blog-form" method="post" th:action="@{/admin/blogs}" th:object="${blog}">
 
-            <input name="published" type="hidden">
             <input name="id" th:value="*{id}" type="hidden">
             <input name="views" th:value="*{views}" type="hidden">
             <input name="createTimeL" th:value="*{createTimeL}" type="hidden">
@@ -95,7 +94,10 @@
                     <label class="ui teal basic label">首图</label>
                     <input name="firstPicture" placeholder="首图引用地址" th:value="*{firstPicture}" type="text">
                 </div>
+            </div>
 
+            <div class="required field">
+                <textarea maxlength="200" name="description" placeholder="博客描述..." th:text="*{description}"></textarea>
             </div>
 
             <div class="inline fields">
@@ -197,6 +199,13 @@
                 rules: [{
                     type: 'empty',
                     prompt: '标题：请输入博客首图'
+                }]
+            },
+            description: {
+                identifier: 'description',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题：请输入博客描述'
                 }]
             }
         }

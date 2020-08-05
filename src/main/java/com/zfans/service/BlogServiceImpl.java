@@ -6,7 +6,9 @@ import com.zfans.entity.Type;
 import com.zfans.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -73,9 +75,23 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.save(blog);
     }
 
+    @Override
+    public Page<Blog> listBlog(Pageable pageable) {
+        return blogRepository.findAll(pageable);
+    }
+
     @Transactional
     @Override
     public void deleteBlog(Long id) {
         blogRepository.deleteById(id);
+    }
+
+
+    @Override
+    public List<Blog> listBlogTop(Integer size) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "updateTime");
+        Pageable pageable = PageRequest.of(0, size, sort);
+
+        return blogRepository.findTop(pageable);
     }
 }
