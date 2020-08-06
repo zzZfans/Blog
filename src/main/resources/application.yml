@@ -5,4 +5,4 @@ spring:
   profiles:
     active: development
 
-
+comment.avatar: /images/carGirl.jpg

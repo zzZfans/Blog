@@ -217,7 +217,7 @@ u, .typo-u {
 
 .typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6 {
     font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-    font-weight: 100;
+    font-weight: 500;
     color: #000;
     line-height: 1.35;
 }

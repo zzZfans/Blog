@@ -14,9 +14,13 @@ import java.util.List;
 public interface BlogService {
     Blog getBlog(Long id);
 
+    Blog getAndConvertBlog(Long id);
+
     Page<Blog> listBlog(Pageable pageable, BlogQuery blogQuery);
 
     Page<Blog> listBlog(Pageable pageable);
+
+    Page<Blog> listBlog(String query, Pageable pageable);
 
     List<Blog> listBlogTop(Integer size);
 

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="_fragments :: head(~{::title})">
     <title>首页</title>
 </head>
+
 <body>
 
 <!--导航-->
@@ -55,11 +57,16 @@
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <i class="calendar icon"></i><span
-                                                    th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd') }">更新日期</span>
+                                                <i class="calendar icon"></i>
+                                                <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd') }">
+                                                    更新日期
+                                                </span>
                                             </div>
                                             <div class="item">
-                                                <i class="eye icon"></i><span th:text="${blog.views}">阅读量</span>
+                                                <i class="eye icon"></i>
+                                                <span th:text="${blog.views}">
+                                                    阅读量
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

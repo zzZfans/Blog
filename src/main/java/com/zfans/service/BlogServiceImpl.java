@@ -1,8 +1,10 @@
 package com.zfans.service;
 
+import com.zfans.NotFoundException;
 import com.zfans.dao.BlogRepository;
 import com.zfans.entity.Blog;
 import com.zfans.entity.Type;
+import com.zfans.util.MarkdownUtils;
 import com.zfans.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,6 +41,22 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.getOne(id);
+    }
+
+    @Override
+    public Blog getAndConvertBlog(Long id) {
+
+        Blog blog = blogRepository.getOne(id);
+
+        if (blog == null) {
+            throw new NotFoundException("该博客不存在！");
+        }
+
+        String content = blog.getContent();
+
+        blog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+
+        return blog;
     }
 
     @Override
@@ -93,5 +111,10 @@ public class BlogServiceImpl implements BlogService {
         Pageable pageable = PageRequest.of(0, size, sort);
 
         return blogRepository.findTop(pageable);
+    }
+
+    @Override
+    public Page<Blog> listBlog(String query, Pageable pageable) {
+        return blogRepository.findByQuery(query, pageable);
     }
 }
