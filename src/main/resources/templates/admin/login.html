@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="admin/_fragments :: head(~{::title})">
     <title>博客管理登录</title>
 </head>
+
 <body>
 
 <div class="my-container" style="max-width: 25em !important;">
@@ -14,7 +17,7 @@
                         后台管理登录
                     </div>
                 </h2>
-                <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
+                <form action="/admin/login" class="ui large form" method="post">
                     <div class="ui segment">
                         <div class="field">
                             <div class="ui left icon input">

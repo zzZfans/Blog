@@ -5,7 +5,6 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * @author Zfans
- * @date 2020/5/6 1:58
  */
 public class Md5Utils {
     /**
@@ -43,6 +42,6 @@ public class Md5Utils {
 
 
     public static void main(String[] args) {
-        System.out.println(code("fanshen,666."));
+        System.out.println(code("admin"));
     }
 }

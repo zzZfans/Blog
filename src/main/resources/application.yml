@@ -4,5 +4,8 @@ spring:
     mode: HTML
   profiles:
     active: development
+  messages:
+    basename: i18n/messages
+
 
 comment.avatar: /images/carGirl.jpg

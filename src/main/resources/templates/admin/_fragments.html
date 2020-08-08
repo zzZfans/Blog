@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:fragment="head(title)">
     <meta charset="UTF-8">
 
@@ -11,10 +13,13 @@
     <!--Semantic UI css资源-->
     <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
     <!--自定义css文件-->
-    <link rel="stylesheet" th:href="@{/css/my.css}">
+    <link href="/css/my.css" rel="stylesheet">
     <!--live2d-widget 看板娘依赖-->
     <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!--Editor.md-->
+    <link href="/lib/Editor_md/css/editormd.min.css" rel="stylesheet">
 </head>
+
 <body>
 
 <!--导航-->
@@ -26,21 +31,22 @@
         <!--stackable 可堆叠的 为了响应移动端-->
         <div class="ui inverted secondary stackable menu">
             <!--item 代表 menu 里面的条目-->
-            <h2 class="ui teal header item">后台管理</h2>
-            <a class="item my-item my-mobile-hide" href="#" th:classappend="${n == 1}?'active'"
-               th:href="@{/admin/blogs}"><i
-                    class="home icon"></i>博客</a>
-            <a class="item my-item my-mobile-hide" href="#" th:classappend="${n == 2}?'active'"
-               th:href="@{/admin/types}"><i
-                    class="bars icon"></i>分类</a>
-            <a class="item my-item my-mobile-hide" href="#" th:classappend="${n == 3}?'active'"
-               th:href="@{/admin/tags}"><i
-                    class="tags icon"></i>标签</a>
+            <a href="/admin">
+                <h2 class="ui teal header item">
+                    后台管理
+                </h2>
+            </a>
+
+            <a class="item my-item my-mobile-hide" href="/admin/blogs" th:classappend="${n == 1}?'active'">
+                <i class="home icon"></i>博客</a>
+            <a class="item my-item my-mobile-hide" href="/admin/types" th:classappend="${n == 2}?'active'">
+                <i class="bars icon"></i>分类</a>
+            <a class="item my-item my-mobile-hide" href="/admin/tags" th:classappend="${n == 3}?'active'">
+                <i class="tags icon"></i>标签</a>
             <div class="right my-item my-mobile-hide menu">
                 <div class="ui dropdown item">
                     <div class="text">
                         <img class="ui avatar image"
-                             src="https://t1.picb.cc/uploads/2020/02/25/khPuoT.jpg"
                              th:src="@{${session.user.avatar}}">
                         <span th:text="${session.user.nickName}"></span>
                     </div>
@@ -60,44 +66,10 @@
 
 <!--底部footer-->
 <!--attached 垂直 效果：去掉了圆角-->
-<footer th:fragment="footer" class="ui inverted vertical segment my-padded-tb-small">
+<footer class="ui vertical segment my-padded-tb-tiny" th:fragment="footer">
     <!--aligned 对齐-->
     <div class="ui center aligned container">
-        <div class="ui inverted divided stackable grid">
-            <!--wide 填满-->
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <!--rounded 圆角-->
-                        <img src="../static/images/weChat.png" th:src="@{/images/weChat.png}" class="ui rounded image"
-                             alt="" style="width: 120px">
-                    </div>
-                </div>
-            </div>
-            <div class="three wide column">
-                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">用户故事（User Story）</a>
-                    <a href="#" class="item">用户故事（User Story）</a>
-                    <a href="#" class="item">用户故事（User Story）</a>
-                </div>
-            </div>
-            <div class="three wide column">
-                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">联系我</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">E-mail：zzzfans@qq.com</a>
-                    <a href="#" class="item">QQ：786975232</a>
-
-                </div>
-            </div>
-            <div class="seven wide column">
-                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">Zfans</h4>
-                <p class="my-text-thin my-text-spaced my-opacity-mini">
-                    浮生若梦，冷暖自知。</p>
-            </div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <div class="my-text-thin my-text-spaced my-opacity-tiny">
+        <div class="my-text-bold my-text-spaced my-opacity-zero_eight">
             <p>Copyright © 2020 By Zfans</p>
             <span id="timeDate">载入天数...</span>
             <span id="times">载入时分秒...</span>
@@ -136,16 +108,16 @@
     </script>
 
     <!--鼠标雪花特效-->
-    <script th:src="@{/js/mouse_fireworks.js}"></script>
+    <script src="/js/mouse_fireworks.js"></script>
 
     <!--    动态网站标题标签-->
-    <script th:src="@{/js/dynamic_site_title.js}"></script>
+    <script src="/js/dynamic_site_title.js"></script>
 
     <!--    鼠标跟随网线特效代码-->
-    <script th:src="@{/js/reticle_follow_mouse.js}"></script>
+    <script src="/js/reticle_follow_mouse.js"></script>
 
     <!--    点击爱心特效代码-->
-    <script th:src="@{/js/click_love.js}"></script>
+    <script src="/js/click_love.js"></script>
 
     <!--    添加看板娘-->
     <!--    <script th:src="@{/js/kan_ban_niang.js}"></script>-->
@@ -156,7 +128,7 @@
     <!--    <script th:src="@{/js/prohibit_f12.js}"></script>-->
 
     <!--    添加建站时间-->
-    <script th:src="@{/js/timing_of_station_construction.js}"></script>
+    <script src="/js/timing_of_station_construction.js"></script>
 
     <!--CDN方式引入 也可以使用本地（下载下来放到项目目录里面）-->
     <!--引入jquery Semantic UI 依赖-->

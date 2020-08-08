@@ -1,17 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="admin/_fragments :: head(~{::title})">
     <title>分类管理</title>
 </head>
+
 <body>
+
 <!--导航-->
 <nav th:replace="admin/_fragments :: menu(2)"></nav>
 
 <div class="ui attached pointing right menu">
     <div class="ui container">
         <div class="right menu">
-            <a class="item" href="#" th:href="@{/admin/types/input}">新增</a>
-            <a class="active teal item" href="#" th:href="@{/admin/types}">列表</a>
+            <a class="item" href="/admin/types/input">新增</a>
+            <a class="active teal item" href="/admin/types">列表</a>
         </div>
     </div>
 </div>
@@ -62,7 +66,7 @@
                         </a>
                     </div>
                     <a class="ui my-margin-top-tiny right floated mini teal basic button"
-                       href="#" th:href="@{/admin/types/input}">
+                       href="/admin/types/input">
                         新增
                     </a>
                 </th>
@@ -72,10 +76,8 @@
     </div>
 </div>
 
-
 <!--底部footer-->
 <footer th:replace="admin/_fragments :: footer"></footer>
-
 
 <th:block th:replace="admin/_fragments :: script"></th:block>
 

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @author Zfans
- * @date 2020/5/5 14:31
  */
 @Controller
 @RequestMapping("/admin")
@@ -32,12 +31,12 @@ public class LoginController {
                         @RequestParam String password,
                         HttpSession session,
                         RedirectAttributes attributes) {
+
         User user = userService.checkUser(userName, password);
+
         if (user != null) {
             user.setPassword(null);
             session.setAttribute("user", user);
-            System.out.println("--------------------session.setAttribute(\"user\", user); Done！--------------------");
-            System.out.println("--------------------" + session.getAttribute("user") + "--------------------");
             return "admin/index";
         } else {
             attributes.addFlashAttribute("message", "用户名或密码错误！");

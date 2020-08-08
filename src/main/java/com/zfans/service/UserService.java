@@ -4,7 +4,6 @@ import com.zfans.entity.User;
 
 /**
  * @author Zfans
- * @date 2020/5/5 14:22
  */
 public interface UserService {
     /**

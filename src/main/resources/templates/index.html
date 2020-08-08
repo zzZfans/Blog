@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="_fragments :: head(~{::title})">
@@ -11,7 +12,7 @@
 <nav th:replace="_fragments::menu(1)"></nav>
 
 <!--中间内容-->
-<div class="my-padded-tb-medium">
+<div class="my-padded-tb-medium animated fadeIn">
     <div class="ui container">
         <div class="ui stackable grid">
             <!--左边博客列表-->
@@ -106,6 +107,7 @@
             </div>
             <!--右边的top-->
             <div class="five wide column">
+
                 <!--分类-->
                 <div class="ui segments">
                     <div class="ui secondary segment">
@@ -114,7 +116,7 @@
                                 <i class="bars icon"></i> 分类
                             </div>
                             <div class="column right aligned">
-                                <a href="" target="_blank">more <i class="angle double right icon"></i></a>
+                                <a href="/types/-1" target="_blank">more <i class="angle double right icon"></i></a>
                             </div>
                         </div>
                     </div>
@@ -122,9 +124,10 @@
                         <!--fluid 流体 效果：填充外层容器-->
                         <div class="ui fluid vertical menu">
                             <!--item 文字之后添加什么都放在最右边-->
-                            <a class="item" href="#" th:each="type : ${types}">
+                            <a class="item" target="_blank" th:each="type : ${types}"
+                               th:href="@{/types/{id}(id=${type.id})}">
                                 <span th:text="${type.name}">
-                                    学习日志
+                                    typeName
                                 </span>
                                 <div class="ui teal basic left pointing label" th:text="${type.blogs.size()}">
                                     13
@@ -133,6 +136,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!--标签-->
                 <div class="ui segments my-margin-top-large">
                     <div class="ui secondary segment">
@@ -141,12 +145,13 @@
                                 <i class="tags icon"></i> 标签
                             </div>
                             <div class="column right aligned">
-                                <a href="" target="_blank">more <i class="angle double right icon"></i></a>
+                                <a href="/tags/-1" target="_blank">more <i class="angle double right icon"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="ui teal segment">
-                        <a class="my-margin-tb-tiny ui teal basic left pointing label" href="#" target="_blank"
+                        <a class="my-margin-tb-tiny ui teal basic left pointing label"
+                           target="_blank" th:href="@{/tags/{id}(id=${tag.id})}"
                            th:each="tag : ${tags}">
                             <span th:text="${tag.name}">方法论</span>
                             <div class="detail" th:text="${tag.blogs.size()}">23</div>
@@ -172,7 +177,7 @@
                 <h4 class="ui horizontal divider header">扫码关注我</h4>
                 <div class="ui centered card" style="width: 10em">
                     <!-- th:src="@{images/weChat.png}" thymeleaf模板找路径-->
-                    <img alt="" class="ui rounded image" th:src="@{images/weChat.png}">
+                    <img alt="" class="ui rounded image" src="/images/weChat.png">
                 </div>
             </div>
         </div>
@@ -185,12 +190,6 @@
 <footer th:replace="_fragments :: footer"></footer>
 
 <th:block th:replace="_fragments :: script"></th:block>
-
-<script>
-    $('.menu.toggle').click(function () {
-        $('.my-item').toggleClass('my-mobile-hide');
-    });
-</script>
 
 </body>
 

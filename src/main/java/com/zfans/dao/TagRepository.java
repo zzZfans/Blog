@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * @author Zfans
- * @date 2020/05/07 13:46
  */
 public interface TagRepository extends JpaRepository<Tag, Long> {
     Tag findByName(String name);

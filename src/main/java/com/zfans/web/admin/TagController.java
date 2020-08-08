@@ -19,7 +19,6 @@ import javax.validation.Valid;
 
 /**
  * @author Zfans
- * @date 2020/05/07 13:55
  */
 @Controller
 @RequestMapping("/admin")
@@ -28,8 +27,9 @@ public class TagController {
     private TagService tagService;
 
     @GetMapping("/tags")
-    public String tags(@PageableDefault(size = 3, sort = {"id"}, direction = Sort.Direction.DESC)
+    public String tags(@PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.DESC)
                                Pageable pageable, Model model) {
+
         model.addAttribute("page", tagService.listTag(pageable));
 
         return "admin/tags";

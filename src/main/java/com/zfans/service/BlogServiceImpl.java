@@ -15,14 +15,12 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Zfans
- * @date 2020/05/09 2:18
  */
 
 /**
@@ -43,6 +41,7 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.getOne(id);
     }
 
+    @Transactional
     @Override
     public Blog getAndConvertBlog(Long id) {
 
@@ -56,7 +55,17 @@ public class BlogServiceImpl implements BlogService {
 
         blog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
 
+        blogRepository.updateViews(id);
+
         return blog;
+    }
+
+    @Override
+    public Page<Blog> listBlog(Long tagId, Pageable pageable) {
+        return blogRepository.findAll((Specification<Blog>) (root, criteriaQuery, criteriaBuilder) -> {
+            Join join = root.join("tags");
+            return criteriaBuilder.equal(join.get("id"), tagId);
+        }, pageable);
     }
 
     @Override
@@ -75,6 +84,19 @@ public class BlogServiceImpl implements BlogService {
             criteriaQuery.where(predicates.toArray(new Predicate[0]));
             return null;
         }, pageable);
+    }
+
+    @Override
+    public Map<String, List<Blog>> archiveBlog() {
+        List<String> yearList = blogRepository.findGroupYear();
+
+        Map<String, List<Blog>> map = new LinkedHashMap<>();
+
+        for (String year : yearList) {
+            map.put(year, blogRepository.findByYear(year));
+        }
+
+        return map;
     }
 
     @Transactional
@@ -96,6 +118,11 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Page<Blog> listBlog(Pageable pageable) {
         return blogRepository.findAll(pageable);
+    }
+
+    @Override
+    public Long countBlog() {
+        return blogRepository.count();
     }
 
     @Transactional

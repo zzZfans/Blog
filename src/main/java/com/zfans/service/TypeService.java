@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * @author Zfans
- * @date 2020/5/6 19:18
  */
 public interface TypeService {
     Type saveType(Type type);

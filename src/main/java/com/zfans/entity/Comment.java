@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * @author Zfans
- * @date 2020/5/4 23:13
  */
 @Data
 @NoArgsConstructor
@@ -27,6 +26,7 @@ public class Comment {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
+    private boolean adminComment;
 
     @ManyToOne
 //    @JsonIgnoreProperties(value = {"comments"})
@@ -44,6 +44,7 @@ public class Comment {
 
     @Override
     public String toString() {
+
         if (blog != null) {
             blog.getComments().clear();
         }
@@ -60,6 +61,7 @@ public class Comment {
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", createTime=" + createTime +
+                ", adminComment=" + adminComment +
                 ", blog=" + blog +
                 ", replyComments=" + replyComments +
                 ", parentComment=" + parentComment +

@@ -13,6 +13,10 @@ body {
     padding: 0 !important;
 }
 
+.my-padded-zero_two {
+    padding: 0.2em !important;
+}
+
 .my-padded {
     padding: 2em !important;
 }
@@ -84,8 +88,12 @@ body {
 
 /*----- text -----*/
 
-.my-text-thin {
+.my-text-lighter {
     font-weight: lighter !important;
+}
+
+.my-text-bold {
+    font-weight: bold !important;
 }
 
 .my-text-spaced {
@@ -98,11 +106,11 @@ body {
 
 
 /*-------opacity---------*/
-.my-opacity-mini {
+.my-opacity-zero_eight {
     opacity: 0.8 !important;
 }
 
-.my-opacity-tiny {
+.my-opacity-zero_six {
     opacity: 0.6 !important;
 }
 
@@ -142,6 +150,11 @@ body {
 .my-black {
     color: #333 !important;
 }
+
+.my-teal {
+    color: #00B5AD !important;
+}
+
 
 /*--------position---------*/
 .my-right-top {

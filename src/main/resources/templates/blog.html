@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="_fragments :: head(~{::title})">
@@ -39,11 +40,13 @@
                 </div>
             </div>
         </div>
+
         <!--图片区域-->
         <div class="ui attached segment">
             <!--fluid 铺满-->
             <img alt="" class="ui fluid rounded image" th:src="@{${blog.firstPicture}}">
         </div>
+
         <!--内容-->
         <div class="ui attached  segment">
             <!--basic 去除了边线-->
@@ -67,31 +70,32 @@
             </div>
 
             <!--赞赏-->
-            <div class="ui center aligned basic segment">
-                <button class="ui basic orange basic circular button" id="payButton">赞赏</button>
-            </div>
+            <div th:if="${blog.appreciation}">
+                <div class="ui center aligned basic segment">
+                    <button class="ui basic orange basic circular button" id="payButton">赞赏</button>
+                </div>
 
-            <div class="ui payQR flowing popup transition visible animating scale out">
-                <div class="ui orange basic label">
-                    <div class="ui images" style="font-size: inherit !important;">
-                        <div class="image">
-                            <img alt="" class="ui rounded bordered image" src="/images/weChat.png"
-                                 style="width: 120px">
-                            <div>支付宝</div>
-                        </div>
-                        <div class="image">
-                            <img alt="" class="ui rounded bordered image" src="/images/weChat.png"
-                                 style="width: 120px">
-                            <div>微信</div>
+                <div class="ui payQR flowing popup transition visible animating scale out">
+                    <div class="ui orange basic label">
+                        <div class="ui images" style="font-size: inherit !important;">
+                            <div class="image">
+                                <img alt="" class="ui rounded bordered image" src="/images/weChat.png"
+                                     style="width: 120px">
+                                <div>支付宝</div>
+                            </div>
+                            <div class="image">
+                                <img alt="" class="ui rounded bordered image" src="/images/weChat.png"
+                                     style="width: 120px">
+                                <div>微信</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
+
         <!--博客信息-->
-        <div class="ui attached positive message">
+        <div class="ui attached positive message" th:if="${blog.shareStatement}">
             <!--middle aligned 垂直居中-->
             <div class="ui middle aligned grid">
                 <div class="eleven wide  column">
@@ -109,80 +113,72 @@
                 </div>
             </div>
         </div>
+
         <!--留言区-->
-        <div class="ui bottom attached segment">
+        <div class="ui bottom attached segment" th:if="${blog.commentAbled}">
             <div class="ui teal segment" id="comment-container">
                 <div th:fragment="commentList">
                     <div class="ui threaded comments" style="max-width: 100%">
                         <h3 class="ui dividing header">评论</h3>
-                        <div class="comment" th:each="comment:${comments}">
+                        <div class="comment" th:each="comment : ${comments}">
                             <a class="avatar">
                                 <img th:src="@{${comment.avatar}}">
                             </a>
                             <div class="content">
-                                <a class="author" th:text="${comment.nickName}">nickName</a>
+                                <a class="author" style="text-decoration: none">
+                                  <span th:text="${comment.nickName}">
+                                      nickName
+                                  </span>
+                                    <div class="ui mini basic teal left pointing label my-padded-zero_two"
+                                         th:if="${comment.adminComment}">
+                                        博主
+                                    </div>
+                                </a>
                                 <div class="metadata">
                                     <span class="date"
                                           th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}">createTime</span>
                                 </div>
                                 <div class="text" th:text="${comment.content}">评论内容</div>
                                 <div class="actions">
-                                    <a class="reply"
-                                       onclick="reply(this)"
-                                       th:attr="data-commentid=${comment.id},data-commentnicknam=${comment.nickName}">回复</a>
+                                    <a class="reply" onclick="reply(this)"
+                                       th:attr="data-commentid=${comment.id},data-commentnickname=${comment.nickName}">
+                                        回复
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="comments" th:if="${comment.replyComments.size()>0}">
+                                <div class="comment" th:each="reply:${comment.replyComments}">
+                                    <a class="avatar">
+                                        <img th:src="@{${reply.avatar}}">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" style="text-decoration: none">
+                                          <span th:text="${reply.nickName}">
+                                              nickName
+                                          </span>
+                                            <div class="ui mini basic teal left pointing label my-padded-zero_two"
+                                                 th:if="${reply.adminComment}">
+                                                博主
+                                            </div>
+                                            &nbsp;
+                                            <span class="my-teal" th:text="|@ ${reply.parentComment.nickName}|">
+                                                parentNickName
+                                            </span>
+                                        </a>
+                                        <div class="metadata">
+                                    <span class="date"
+                                          th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">createTime</span>
+                                        </div>
+                                        <div class="text" th:text="${reply.content}">评论内容</div>
+                                        <div class="actions">
+                                            <a class="reply"
+                                               onclick="reply(this)"
+                                               th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickName}">回复</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!--                        <div class="comment">-->
-                        <!--                            <a class="avatar">-->
-                        <!--                                <img src="/images/weChat.png">-->
-                        <!--                            </a>-->
-                        <!--                            <div class="content">-->
-                        <!--                                <a class="author">Elliot Fu</a>-->
-                        <!--                                <div class="metadata">-->
-                        <!--                                    <span class="date">昨天上午12:30</span>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="text">-->
-                        <!--                                    <p>這對我的研究是非常有用.謝謝!</p>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="actions">-->
-                        <!--                                    <a class="reply">回复</a>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="comments">-->
-                        <!--                                <div class="comment">-->
-                        <!--                                    <a class="avatar">-->
-                        <!--                                        <img src="/images/weChat.png">-->
-                        <!--                                    </a>-->
-                        <!--                                    <div class="content">-->
-                        <!--                                        <a class="author">Jenny Hess</a>-->
-                        <!--                                        <div class="metadata">-->
-                        <!--                                            <span class="date">刚刚</span>-->
-                        <!--                                        </div>-->
-                        <!--                                        <div class="text">艾略特你永远是多么正确 :)</div>-->
-                        <!--                                        <div class="actions">-->
-                        <!--                                            <a class="reply">回复</a>-->
-                        <!--                                        </div>-->
-                        <!--                                    </div>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-                        <!--                        <div class="comment">-->
-                        <!--                            <a class="avatar">-->
-                        <!--                                <img src="/images/weChat.png">-->
-                        <!--                            </a>-->
-                        <!--                            <div class="content">-->
-                        <!--                                <a class="author">Joe Henderson</a>-->
-                        <!--                                <div class="metadata">-->
-                        <!--                                    <span class="date">5 天以前</span>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="text">老兄，这太棒了。非常感谢。</div>-->
-                        <!--                                <div class="actions">-->
-                        <!--                                    <a class="reply">回复</a>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-
                     </div>
                 </div>
             </div>
@@ -199,14 +195,16 @@
                     <div class="field my-mobile-wide my-margin-bottom-small">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
-                            <input name="nickName" placeholder="姓名" type="text">
+                            <input name="nickName" placeholder="姓名" th:value="${session.user}?${session.user.nickName}"
+                                   type="text">
                         </div>
 
                     </div>
                     <div class="field my-mobile-wide my-margin-bottom-small">
                         <div class="ui left icon input">
                             <i class="mail icon"></i>
-                            <input name="email" placeholder="邮箱" type="text">
+                            <input name="email" placeholder="邮箱" th:value="${session.user}?${session.user.email}"
+                                   type="text">
                         </div>
 
                     </div>
@@ -239,10 +237,7 @@
 </div>
 
 <!--页面二维码-->
-<div class="ui weChatQR flowing popup transition visible animating scale out"
-     id="qrCode">
-
-</div>
+<div class="ui weChatQR flowing popup transition visible animating scale out" id="qrCode"></div>
 
 <br>
 <br>
@@ -254,13 +249,10 @@
 <th:block th:replace="_fragments :: script"></th:block>
 
 <script th:inline="javascript">
-    $('.menu.toggle').click(function () {
-        $('.my-item').toggleClass('my-mobile-hide');
-    });
 
     $('#payButton').popup({
         popup: $('.payQR.popup'),
-        on: 'click',
+        on: 'hover',
         position: 'top center'
     });
 
@@ -309,7 +301,7 @@
                 $('#toolBar').hide(500);
             }
         }
-    })
+    });
 
     //评论表单验证
     $('.ui.form').form({
@@ -350,14 +342,14 @@
     });
 
     function postData() {
-        $("#comment-container").load(/*[[@{/comments}]]*/"", {
+        $("#comment-container").load(/*[[@{/comments}]]*/, {
             "parentComment.id": $("[name='parentComment.id']").val(),
             "blog.id": $("[name='blog.id']").val(),
             "nickName": $("[name='nickName']").val(),
             "email": $("[name='email']").val(),
             "content": $("[name='content']").val()
         }, function (responseTxt, statusTxt, xhr) {
-//        $(window).scrollTo($('#comment-container'),500);
+            // $(window).scrollTo($('#comment-container'),500);
             clearContent();
         });
     }
@@ -375,6 +367,10 @@
         $("[name='parentComment.id']").val(commentId);
         $(window).scrollTo($('#comment-form'), 500);
     }
+
+    $(function () {
+        $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/);
+    });
 
 </script>
 

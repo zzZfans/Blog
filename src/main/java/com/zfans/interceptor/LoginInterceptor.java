@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author Zfans
- * @date 2020/5/6 2:17
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override

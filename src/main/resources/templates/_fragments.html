@@ -32,16 +32,21 @@
         <!--stackable 可堆叠的 为了响应移动端-->
         <div class="ui inverted secondary stackable menu">
             <!--item 代表 menu 里面的条目-->
-            <h2 class="ui teal header item">Zfans.</h2>
+            <a href="/" style="text-decoration: none">
+                <h2 class="ui teal header item">
+                    Zfans
+                </h2>
+            </a>
+
             <a class="item my-item my-mobile-hide" href="/" th:classappend="${n == 1}?'active'"><i
                     class="home icon"></i>首页</a>
-            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 2}?'active'"><i
+            <a class="item my-item my-mobile-hide" href="/types/-1" th:classappend="${n == 2}?'active'"><i
                     class="bars icon"></i>分类</a>
-            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 3}?'active'"><i
+            <a class="item my-item my-mobile-hide" href="/tags/-1" th:classappend="${n == 3}?'active'"><i
                     class="tags icon"></i>标签</a>
-            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 4}?'active'"><i
+            <a class="item my-item my-mobile-hide" href="/archives" th:classappend="${n == 4}?'active'"><i
                     class="clone icon"></i>归档</a>
-            <a href="#" class="item my-item my-mobile-hide" th:classappend="${n == 5}?'active'"><i
+            <a class="item my-item my-mobile-hide" href="/about" th:classappend="${n == 5}?'active'"><i
                     class="user icon"></i>关于我</a>
             <div class="right item my-item my-mobile-hide">
                 <form method="post" name="search" th:action="@{/search}">
@@ -79,17 +84,24 @@
             </div>
             <div class="three wide column">
                 <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">用户故事（User Story）</a>
-                    <a href="#" class="item">用户故事（User Story）</a>
-                    <a href="#" class="item">用户故事（User Story）</a>
+                <div id="latestBlog-container">
+                    <div class="ui inverted link list" th:fragment="newBlogList">
+                        <a class="item" target="_blank" th:each="blog:${latestBlog}"
+                           th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}">
+                            blogTitle
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="three wide column">
                 <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">联系我</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item">E-mail：zzzfans@qq.com</a>
-                    <a href="#" class="item">QQ：786975232</a>
+                    <a class="item" href="#" th:text="'E-mail：'+#{footer.email}">
+                        email
+                    </a>
+                    <a class="item" href="#" th:text="'QQ：'+#{footer.QQ}">
+                        QQ
+                    </a>
 
                 </div>
             </div>
@@ -100,7 +112,11 @@
             </div>
         </div>
         <div class="ui inverted section divider"></div>
-        <p class="my-text-thin my-text-spaced my-opacity-tiny">Copyright © 2020 By Zfans</p>
+        <div class="my-text-thin my-text-spaced my-opacity-tiny">
+            <p>Copyright © 2020 By Zfans</p>
+            <span id="timeDate">载入天数...</span>
+            <span id="times">载入时分秒...</span>
+        </div>
     </div>
 </footer>
 
@@ -122,6 +138,67 @@
     <script src="/lib/tocbot/tocbot.min.js"></script>
     <!--qrcode 二维码生成-->
     <script src="/lib/qrcode/qrcode.min.js"></script>
+
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.my-item').toggleClass('my-mobile-hide');
+        });
+    </script>
+
+    <script>
+        $('#latestBlog-container').load('/footer/newBlogList');
+    </script>
+
+    <!--爱国富强民主...组合（这个特效会吃掉click事件）-->
+    <!--    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--    <script type="text/javascript">-->
+    <!--        /* 鼠标点击特效 - 7Core.CN */-->
+    <!--        var a_idx = 0;-->
+    <!--        jQuery(document).ready(function ($) {-->
+    <!--            $("body").click(function (e) {-->
+    <!--                var a = ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"];-->
+    <!--                var $i = $("<span/>").text(a[a_idx]);-->
+    <!--                a_idx = (a_idx + 1) % a.length;-->
+    <!--                var x = e.pageX, y = e.pageY;-->
+    <!--                $i.css({-->
+    <!--                    "z-index": 100000000,-->
+    <!--                    "top": y - 20,-->
+    <!--                    "left": x,-->
+    <!--                    "position": "absolute",-->
+    <!--                    "font-weight": "bold",-->
+    <!--                    "color": "#ff6651"-->
+    <!--                });-->
+    <!--                $("body").append($i);-->
+    <!--                $i.animate({"top": y - 180, "opacity": 0}, 1500, function () {-->
+    <!--                    $i.remove();-->
+    <!--                });-->
+    <!--            });-->
+    <!--        });-->
+    <!--    </script>-->
+
+    <!--鼠标雪花特效-->
+    <script src="/js/mouse_fireworks.js"></script>
+
+    <!--    动态网站标题标签-->
+    <script src="/js/dynamic_site_title.js"></script>
+
+    <!--    鼠标跟随网线特效代码-->
+    <script src="/js/reticle_follow_mouse.js"></script>
+
+    <!--    点击爱心特效代码-->
+    <script src="/js/click_love.js"></script>
+
+    <!--    添加看板娘-->
+    <!--    <script th:src="@{/js/kan_ban_niang.js}"></script>-->
+    <!--live2d-widget 看板娘-->
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+    <!--    禁用键盘F12事件-->
+    <!--    <script th:src="@{/js/prohibit_f12.js}"></script>-->
+
+    <!--    添加建站时间-->
+    <script src="/js/timing_of_station_construction.js"></script>
+
 </th:block>
 
 </body>

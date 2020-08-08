@@ -14,7 +14,6 @@ import java.util.List;
 
 /**
  * @author Zfans
- * @date 2020/05/06 19:27
  */
 @Service
 public class TypeServiceImpl implements TypeService {

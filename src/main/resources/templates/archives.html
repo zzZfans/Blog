@@ -1,46 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!--移动端预览设置-->
-    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="_fragments :: head(~{::title})">
     <title>归档</title>
-    <!--Semantic UI css资源-->
-    <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
-    <!--引入自定义css文件-->
-    <link href="../static/css/my.css" rel="stylesheet">
 </head>
+
 <body>
 
 <!--导航-->
-<!--inverted 反转 效果：本来是白色，用了之后变成黑色-->
-<!--attached 附上 效果：贴敷在背板上，消去了圆角-->
-<!--segment 分割-->
-<nav class="ui inverted attached segment my-padded-tb-zero my-shadow-small">
-    <div class="ui container">
-        <!--stackable 可堆叠的 为了响应移动端-->
-        <div class="ui inverted secondary stackable menu">
-            <!--item 代表 menu 里面的条目-->
-            <h2 class="ui teal header item">Zfans.</h2>
-            <a class="item my-item my-mobile-hide" href="#"><i class="home icon"></i>首页</a>
-            <a class="item my-item my-mobile-hide" href="#"><i class="bars icon"></i>分类</a>
-            <a class="item my-item my-mobile-hide" href="#"><i class="tags icon"></i>标签</a>
-            <a class="active item my-item my-mobile-hide" href="#"><i class="clone icon"></i>归档</a>
-            <a class="item my-item my-mobile-hide" href="#"><i class="user icon"></i>关于我</a>
-            <div class="right item my-item my-mobile-hide">
-                <!--transparent 透明-->
-                <div class="ui icon inverted transparent input">
-                    <i class="search link icon"></i>
-                    <input placeholder="Search..." type="text">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--menu 有居中的效果-->
-    <a class="ui menu toggle black icon button my-right-top my-mobile-show" href="#">
-        <i class="sidebar icon"></i>
-    </a>
-</nav>
+<nav th:replace="_fragments::menu(4)"></nav>
 
 <!--中间内容-->
 <div class="my-container my-padded-tb-medium">
@@ -54,169 +23,44 @@
                     <h3 class="ui teal header">归档</h3>
                 </div>
                 <div class="right aligned column">
-                    共 <h2 class="ui orange header my-inline-block my-text-thin">14</h2> 篇博客
+                    共
+                    <h2 class="ui orange header my-inline-block my-text-thin" th:text="${blogCount}">
+                        博客数量
+                    </h2>
+                    篇博客
                 </div>
             </div>
         </div>
 
-        <h3 class="ui center aligned header">2017</h3>
-        <!--fluid 填充-->
-        <div class="ui fluid vertical menu">
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
+        <th:block th:each="item : ${archiveMap}">
+            <h3 class="ui center aligned header" th:text="${item.key}">年份</h3>
+            <!--fluid 填充-->
+            <div class="ui fluid vertical menu">
+                <a class="item my-padded-tb-zero_seven" target="_blank" th:each="blog:${item.value}"
+                   th:href="@{/blog/{id}(id=${blog.id})}">
+                     <span>
+                    <i class="mini teal circle icon"></i>
+                    <span th:text="${blog.title}">blogTitle</span>
+                    <div class="ui teal basic label left pointing my-padded-tb-soTiny"
+                         th:text="${#dates.format(blog.updateTime,'MMMdd')}">
+                        月日
                     </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
+                     </span>
+                    <div class="ui orange basic label my-padded-tb-soTiny" th:text="${blog.flag}">
+                        原创
                     </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
-                    </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
-                    </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-        </div>
-
-        <h3 class="ui center aligned header">2016</h3>
-        <!--fluid 填充-->
-        <div class="ui fluid vertical menu">
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
-                    </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
-                    </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
-                    </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-            <a class="item my-padded-tb-zero_seven" href="#" target="_blank">
-                <span>
-                    <i class="mini teal circle icon"></i>       啊啊啊啊啊安安
-                    <div class="ui teal basic label my-padded-tb-soTiny">
-                        9月3日
-                    </div>
-                </span>
-                <div class="ui orange basic label my-padded-tb-soTiny">
-                    原创
-                </div>
-            </a>
-        </div>
-
-
+                </a>
+            </div>
+        </th:block>
     </div>
 </div>
 
 <br><br><br>
 
-
 <!--底部footer-->
-<!--attached 垂直 效果：去掉了圆角-->
-<footer class="ui inverted vertical segment my-padded-tb-small">
-    <!--aligned 对齐-->
-    <div class="ui center aligned container">
-        <div class="ui inverted divided stackable grid">
-            <!--wide 填满-->
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <!--rounded 圆角-->
-                        <img alt="" class="ui rounded image" src="../static/images/weChat.png" style="width: 120px">
-                    </div>
-                </div>
-            </div>
-            <div class="three wide column">
-                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a class="item" href="#">用户故事（User Story）</a>
-                    <a class="item" href="#">用户故事（User Story）</a>
-                    <a class="item" href="#">用户故事（User Story）</a>
-                </div>
-            </div>
-            <div class="three wide column">
-                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">联系我</h4>
-                <div class="ui inverted link list">
-                    <a class="item" href="#">E-mail：zzzfans@qq.com</a>
-                    <a class="item" href="#">QQ：786975232</a>
+<footer th:replace="_fragments :: footer"></footer>
 
-                </div>
-            </div>
-            <div class="seven wide column">
-                <h4 class="ui inverted header my-text-thin my-text-spaced my-opacity-mini">Zfans.</h4>
-                <p class="my-text-thin my-text-spaced my-opacity-mini">
-                    浮生若梦，冷暖自知。</p>
-            </div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <p class="my-text-thin my-text-spaced my-opacity-tiny">Copyright © 2020 By Zfans.</p>
-    </div>
-</footer>
+<th:block th:replace="_fragments :: script"></th:block>
 
-
-<!--CDN方式引入 也可以使用本地（下载下来放到项目目录里面）-->
-<!--引入jquery Semantic UI 依赖-->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<!--Semantic UI js资源-->
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-<script>
-    $('.menu.toggle').click(function () {
-        $('.my-item').toggleClass('my-mobile-hide');
-    });
-
-</script>
 </body>
 </html>

@@ -13,9 +13,9 @@
     <div class="ui container">
         <div class="ui success large message">
             <h3>Hi,</h3>
-            <p>Zfans，欢迎登录！</p>
+            <p th:text="|${session.user.nickName}，欢迎登录！|"></p>
         </div>
-        <img src="https://t1.picb.cc/uploads/2020/02/25/khBv1D.jpg" alt=""
+        <img alt="" th:src="#{index.photo.address}"
              class="ui rounded bordered fluid image">
     </div>
 </div>

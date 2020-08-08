@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * @author Zfans
- * @date 2020/5/4 22:47
  */
 @Data
 @NoArgsConstructor
@@ -61,7 +60,7 @@ public class Blog {
 //    @JsonIgnoreProperties(value = {"blogs"})
     private User user;
 
-    @OneToMany(mappedBy = "blog")
+    @OneToMany(mappedBy = "blog", cascade = CascadeType.REMOVE)
 //    @JsonIgnoreProperties(value = {"blog"})
     private List<Comment> comments = new ArrayList<>();
 

@@ -3,13 +3,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="_fragments :: head(~{::title})">
-    <title>标签</title>
+    <title>分类</title>
 </head>
 
 <body>
 
 <!--导航-->
-<nav th:replace="_fragments::menu(3)"></nav>
+<nav th:replace="_fragments::menu(2)"></nav>
 
 <!--中间内容-->
 <div class="my-container my-padded-tb-medium">
@@ -20,33 +20,30 @@
             <!--middle aligned 垂直居中-->
             <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <h3 class="ui teal header">标签</h3>
+                    <h3 class="ui teal header">分类</h3>
                 </div>
                 <div class="right aligned column">
                     共
-                    <h2 class="ui orange header my-inline-block my-text-thin" th:text="${tagList.size()}">
-                        标签数目
+                    <h2 class="ui orange header my-inline-block my-text-thin" th:text="${typeList.size()}">
+                        分类数目
                     </h2>
                     个
                 </div>
             </div>
         </div>
-
         <div class="ui attached segment my-padded-tb-small">
-            <a class="my-margin-tb-tiny my-padded-tb-zero_seven ui basic left pointing label"
-               th:classappend="${tag.id==activeTagId}?teal"
-               th:each="tag : ${tagList}" th:href="@{/tags/{id}(id=${tag.id})}">
-               <span th:text="${tag.name}">
-                   tagName
-               </span>
-                <div class="detail" th:text="${tag.blogs.size()}">
-                    标签对应博客数量
+            <div class="ui labeled button my-margin-tb-tiny" th:each="type : ${typeList}">
+                <a class="ui basic button " th:classappend="${type.id==activeTypeId}?teal"
+                   th:href="@{/types/{id}(id=${type.id})}" th:text="${type.name}">
+                    typeName
+                </a>
+                <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId}?teal"
+                     th:text="${type.blogs.size()}">
+                    分类下的博客数量
                 </div>
-            </a>
+            </div>
         </div>
-
         <div class="ui top attached teal segment">
-
             <div class="ui vertical segment" th:each="blog : ${page.content}">
                 <div class="ui middle aligned mobile reversed stackable grid">
                     <!--图片左边-->
@@ -61,46 +58,31 @@
                             博客描述
                         </p>
                         <div class="ui stackable grid">
-
-                            <div class="row">
-                                <div class="eleven wide column">
-                                    <div class="ui horizontal link list">
-                                        <div class="item">
-                                            <img alt="" class="ui avatar image" th:src="@{${blog.user.avatar}}">
-                                            <div class="content">
-                                                <a class="header" href="#" th:text="${blog.user.nickName}">
-                                                    名称
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <i class="calendar icon"></i><span
-                                                th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd') }">更新日期</span>
-                                        </div>
-                                        <div class="item">
-                                            <i class="eye icon"></i><span th:text="${blog.views}">阅读量</span>
+                            <div class="eleven wide column">
+                                <div class="ui horizontal link list">
+                                    <div class="item">
+                                        <img alt="" class="ui avatar image" th:src="@{${blog.user.avatar}}">
+                                        <div class="content">
+                                            <a class="header" href="#" th:text="${blog.user.nickName}">
+                                                名称
+                                            </a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="right aligned five wide column">
-                                    <a class="ui teal basic label my-padded-tb-soTiny" href="" target="_blank"
-                                       th:text="${blog.type.name}">
-                                        分类名称
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="column">
-                                    <a class="ui basic left pointing label my-padded-tb-soTiny" href="#"
-                                       th:classappend="${tag.id==activeTagId}?teal"
-                                       th:each="tag :${blog.tags}"
-                                       th:href="@{/tags/{id}(id=${tag.id})}" th:text="${tag.name}">
-                                        tagName
-                                    </a>
+                                    <div class="item">
+                                        <i class="calendar icon"></i><span
+                                            th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd') }">更新日期</span>
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i><span th:text="${blog.views}">阅读量</span>
+                                    </div>
                                 </div>
                             </div>
-
+                            <div class="right aligned five wide column">
+                                <a class="ui teal basic label my-padded-tb-soTiny" href="" target="_blank"
+                                   th:text="${blog.type.name}">
+                                    分类名称
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="five wide column">

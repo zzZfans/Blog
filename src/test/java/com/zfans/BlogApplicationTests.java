@@ -11,7 +11,7 @@ class BlogApplicationTests {
     private TypeRepository typeRepository;
 
     @Test
-    void T() {
+    void Test() {
         System.out.println(typeRepository.findAll());
     }
 

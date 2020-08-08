@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <!--移动端预览设置-->
-    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+<head th:replace="admin/_fragments :: head(~{::title})">
     <title>博客发布</title>
-    <!--Semantic UI css资源-->
-    <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
-    <!--Editor.md-->
-    <link href="/lib/Editor_md/css/editormd.min.css" rel="stylesheet">
-    <!--引入自定义css文件-->
-    <link href="/css/my.css" rel="stylesheet">
 </head>
+
 <body>
 <!--导航-->
 <nav th:replace="admin/_fragments :: menu(1)"></nav>
@@ -19,8 +12,8 @@
 <div class="ui attached pointing right menu">
     <div class="ui container">
         <div class="right menu">
-            <a class="active teal item" href="#" th:href="@{/admin/blogs/input}">发布</a>
-            <a class="item" href="#" th:href="@{/admin/blogs}">列表</a>
+            <a class="active teal item" href="/admin/blogs/input">发布</a>
+            <a class="item" href="/admin/blogs">列表</a>
         </div>
     </div>
 </div>
@@ -28,8 +21,9 @@
 <!--中间内容-->
 <div class="my-container my-padded-tb-medium">
     <div class="ui container">
-        <form action="#" class="ui form" id="blog-form" method="post" th:action="@{/admin/blogs}" th:object="${blog}">
+        <form action="/admin/blogs" class="ui form" id="blog-form" method="post" th:object="${blog}">
 
+            <input name="published" type="hidden">
             <input name="id" th:value="*{id}" type="hidden">
             <input name="views" th:value="*{views}" type="hidden">
             <input name="createTimeL" th:value="*{createTimeL}" type="hidden">

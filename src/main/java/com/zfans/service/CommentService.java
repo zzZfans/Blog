@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * @author Zfans
- * @date 2020/08/07 1:45
  */
 public interface CommentService {
 

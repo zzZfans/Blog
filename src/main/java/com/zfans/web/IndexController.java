@@ -30,7 +30,7 @@ public class IndexController {
     private TagService tagService;
 
     @GetMapping("/")
-    public String index(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String index(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model) {
 
         model.addAttribute("page", blogService.listBlog(pageable));
@@ -42,7 +42,7 @@ public class IndexController {
     }
 
     @PostMapping("/search")
-    public String search(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query, Model model) {
         model.addAttribute("page", blogService.listBlog(query, pageable));
         model.addAttribute("query", query);
@@ -57,4 +57,13 @@ public class IndexController {
 
         return "blog";
     }
+
+    @GetMapping("/footer/newBlogList")
+    public String newBlogList(Model model) {
+
+        model.addAttribute("latestBlog", blogService.listBlogTop(3));
+
+        return "_fragments::newBlogList";
+    }
+
 }

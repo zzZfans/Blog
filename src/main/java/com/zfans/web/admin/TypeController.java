@@ -19,7 +19,6 @@ import javax.validation.Valid;
 
 /**
  * @author Zfans
- * @date 2020/5/6 18:02
  */
 @Controller
 @RequestMapping("/admin")
@@ -28,7 +27,7 @@ public class TypeController {
     private TypeService typeService;
 
     @GetMapping("/types")
-    public String types(@PageableDefault(size = 3, sort = {"id"}, direction = Sort.Direction.DESC)
+    public String types(@PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.DESC)
                                 Pageable pageable, Model model) {
         model.addAttribute("page", typeService.listType(pageable));
 
