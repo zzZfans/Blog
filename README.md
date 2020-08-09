@@ -612,7 +612,7 @@ public class LogAspect {
 
 # 页面截图
 
-## 后台管理登录页面
+## 后台管理登录页
 
 ![t0FKnT.png](https://t1.picb.cc/uploads/2020/08/08/t0FKnT.png)
 
