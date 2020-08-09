@@ -152,7 +152,7 @@
 ```
 
 
-  	application.yml:
+  application.xml:
 
 ```yaml
 spring:
