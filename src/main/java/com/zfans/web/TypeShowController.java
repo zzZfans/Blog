@@ -34,7 +34,9 @@ public class TypeShowController {
         List<Type> typeList = typeService.listTypeTop(10000);
 
         if (id == -1) {
-            id = typeList.get(0).getId();
+            if (!typeList.isEmpty()) {
+                id = typeList.get(0).getId();
+            }
         }
 
         BlogQuery blogQuery = new BlogQuery();

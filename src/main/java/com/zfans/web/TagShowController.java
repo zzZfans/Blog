@@ -33,7 +33,9 @@ public class TagShowController {
         List<Tag> tagList = tagService.listTagTop(10000);
 
         if (id == -1) {
-            id = tagList.get(0).getId();
+            if (!tagList.isEmpty()) {
+                id = tagList.get(0).getId();
+            }
         }
 
         model.addAttribute("tagList", tagList);
