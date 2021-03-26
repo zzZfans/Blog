@@ -1,7 +1,8 @@
-package com.zfans.service;
+package com.zfans.service.impl;
 
 import com.zfans.dao.CommentRepository;
 import com.zfans.entity.Comment;
+import com.zfans.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

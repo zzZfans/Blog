@@ -1,7 +1,8 @@
-package com.zfans.service;
+package com.zfans.service.impl;
 
 import com.zfans.dao.UserRepository;
 import com.zfans.entity.User;
+import com.zfans.service.UserService;
 import com.zfans.util.Md5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

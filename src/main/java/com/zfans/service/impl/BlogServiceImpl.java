@@ -1,9 +1,10 @@
-package com.zfans.service;
+package com.zfans.service.impl;
 
 import com.zfans.NotFoundException;
 import com.zfans.dao.BlogRepository;
 import com.zfans.entity.Blog;
 import com.zfans.entity.Type;
+import com.zfans.service.BlogService;
 import com.zfans.util.MarkdownUtils;
 import com.zfans.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;

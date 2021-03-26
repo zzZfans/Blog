@@ -1,7 +1,8 @@
-package com.zfans.service;
+package com.zfans.service.impl;
 
 import com.zfans.dao.TagRepository;
 import com.zfans.entity.Tag;
+import com.zfans.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
